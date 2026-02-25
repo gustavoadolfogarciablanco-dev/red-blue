@@ -7,7 +7,41 @@ import { initI18n, t } from './i18n.js';
 /* ─────────────────────────────────────────
    i18n – MUST RUN FIRST
 ───────────────────────────────────────── */
-initI18n();
+const root = document.documentElement;
+const LOADER_TIMEOUT_MS = 3500;
+let i18nReady = false;
+let assetsReady = false;
+let loaderDone = false;
+
+function finishLoader() {
+  if (loaderDone) return;
+  loaderDone = true;
+  root.classList.add('app-ready');
+  root.classList.remove('app-loading');
+  document.body?.removeAttribute('aria-busy');
+}
+
+function tryFinishLoader() {
+  if (i18nReady && assetsReady) finishLoader();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.body?.setAttribute('aria-busy', 'true');
+});
+
+window.addEventListener('load', () => {
+  assetsReady = true;
+  tryFinishLoader();
+});
+
+window.setTimeout(() => {
+  finishLoader();
+}, LOADER_TIMEOUT_MS);
+
+initI18n(() => {
+  i18nReady = true;
+  tryFinishLoader();
+});
 
 
 /* ─────────────────────────────────────────
