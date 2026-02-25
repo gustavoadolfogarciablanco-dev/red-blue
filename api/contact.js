@@ -10,7 +10,7 @@
  */
 
 const FROM_EMAIL = 'noreply@redandblue.com';
-const TO_EMAIL   = 'hola@redandblue.com';
+const TO_EMAIL   = 'contact@redandblue.dev';
 
 export default async function handler(req, res) {
   // CORS
