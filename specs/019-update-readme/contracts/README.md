@@ -1,3 +1,7 @@
 # Contracts
 
-This folder documents behavior contracts for 019-update-readme.
+Behavior contract for 019-update-readme.
+
+## Behavior
+- README reflects current repo structure and stack.
+- Cache behavior matches `vercel.json`.
