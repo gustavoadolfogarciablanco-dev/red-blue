@@ -74,7 +74,7 @@ export default async function handler(req, res) {
             <h3 style="font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px;">Mensaje</h3>
             <p style="line-height: 1.7; color: #333; white-space: pre-line;">${safeMessage}</p>
             <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;" />
-            <p style="font-size: 12px; color: #999;">Red and Blue · redandblue.com</p>
+            <p style="font-size: 12px; color: #999;">Red and Blue · redandblue.dev</p>
           </div>
         `,
       }),
