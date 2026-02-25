@@ -8,14 +8,14 @@
   <title>Red and Blue – Desarrollo Web a Medida</title>
   <meta name="description" content="Desarrollo web a medida, automatización de procesos e integración de IA para tu negocio. Soluciones rápidas, seguras y escalables." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://redandblue.com" />
+  <link rel="canonical" href="https://redandblue.dev" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Red and Blue – Desarrollo Web a Medida" />
   <meta property="og:description" content="Creamos software seguro, rápido y escalable, con minimalismo corporativo e innovación." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://redandblue.com" />
-  <meta property="og:image" content="https://redandblue.com/preview-image.png" />
+  <meta property="og:url" content="https://redandblue.dev" />
+  <meta property="og:image" content="https://redandblue.dev/preview-image.png" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="Red and Blue" />
 
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Red and Blue – Desarrollo Web a Medida" />
   <meta name="twitter:description" content="Creamos software seguro, rápido y escalable." />
-  <meta name="twitter:image" content="https://redandblue.com/preview-image.png" />
+  <meta name="twitter:image" content="https://redandblue.dev/preview-image.png" />
 
   <!-- JSON-LD Organization Schema -->
   <script type="application/ld+json">
@@ -31,7 +31,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Red and Blue",
-    "url": "https://redandblue.com",
+    "url": "https://redandblue.dev",
     "description": "Desarrollo web a medida, automatización de procesos e integración de IA",
     "foundingLocation": "Argentina",
     "serviceType": ["Desarrollo Web", "Automatización de Procesos", "Integración con IA"],
@@ -63,6 +63,9 @@
 
 <body>
 
+  <!-- Screen reader language announcer (accessibility T021) -->
+  <span id="lang-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></span>
+
   <!-- Grain texture overlay -->
   <svg class="grain-svg" aria-hidden="true" focusable="false">
     <filter id="grain-filter" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
@@ -77,9 +80,13 @@
   </svg>
 
   <!-- Navigation -->
-  <nav class="nav" role="navigation" aria-label="Navegación principal">
+  <nav class="nav" role="navigation"
+       aria-label="Navegación principal"
+       data-i18n-aria="nav.aria">
     <div class="nav__inner">
-      <a href="/" class="logo" aria-label="Red and Blue – Inicio">
+      <a href="/" class="logo"
+         aria-label="Red and Blue – Inicio"
+         data-i18n-aria="nav.logo.aria">
         <span class="logo__red">Red</span><span class="logo__amp">&</span><span class="logo__blue">Blue</span>
       </a>
       <div class="nav__right">
@@ -91,13 +98,17 @@
             <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
           </svg>
         </button>
-        <a href="#contacto" class="btn btn--sm">Iniciar proyecto</a>
+        <!-- Language toggle button (T008) -->
+        <button class="lang-btn" id="langToggle" type="button" aria-label="Switch to English">EN</button>
+        <a href="#contacto" class="btn btn--sm" data-i18n="nav.cta">Iniciar proyecto</a>
       </div>
     </div>
   </nav>
 
   <!-- ===================== HERO ===================== -->
-  <section class="hero" id="inicio" aria-label="Introducción">
+  <section class="hero" id="inicio"
+           aria-label="Introducción"
+           data-i18n-aria="hero.aria">
     <!-- Gradient mesh background -->
     <div class="hero__mesh" aria-hidden="true">
       <div class="mesh mesh--1"></div>
@@ -107,19 +118,20 @@
 
     <div class="hero__inner">
       <div class="hero__content">
-        <p class="hero__tag js-reveal">Desarrollo · IA · Automatización</p>
-        <h1 class="hero__title js-reveal">
+        <p class="hero__tag js-reveal" data-i18n="hero.tag">Desarrollo · IA · Automatización</p>
+        <h1 class="hero__title js-reveal"
+            data-i18n-html="hero.title">
           Desarrollo web<br />
           <em>a medida</em>,<br />
           seguro y escalable
         </h1>
-        <p class="hero__sub js-reveal">
+        <p class="hero__sub js-reveal" data-i18n="hero.subtitle">
           Construimos soluciones digitales que transforman tu negocio.
           Rápidas, precisas y diseñadas para crecer con vos.
         </p>
         <div class="hero__cta js-reveal">
-          <a href="#contacto" class="btn btn--lg">Iniciar proyecto</a>
-          <a href="#servicios" class="btn btn--ghost btn--lg">Ver servicios</a>
+          <a href="#contacto" class="btn btn--lg" data-i18n="hero.cta.primary">Iniciar proyecto</a>
+          <a href="#servicios" class="btn btn--ghost btn--lg" data-i18n="hero.cta.secondary">Ver servicios</a>
         </div>
       </div>
 
@@ -128,16 +140,18 @@
         <div class="hero__blob hero__blob--2"></div>
         <div class="hero__badge hero__badge--top">
           <span class="badge__dot"></span>
-          <span class="badge__text">Proyectos activos</span>
+          <span class="badge__text" data-i18n="hero.badge.top">Proyectos activos</span>
         </div>
         <div class="hero__badge hero__badge--bottom">
           <span class="badge__num">50+</span>
-          <span class="badge__text">Proyectos entregados</span>
+          <span class="badge__text" data-i18n="hero.badge.bottom">Proyectos entregados</span>
         </div>
       </div>
     </div>
 
-    <a href="#servicios" class="hero__scroll" aria-label="Desplazarse a servicios">
+    <a href="#servicios" class="hero__scroll"
+       aria-label="Desplazarse a servicios"
+       data-i18n-aria="hero.scroll.aria">
       <span class="scroll__line"></span>
     </a>
   </section>
@@ -146,8 +160,9 @@
   <section class="services" id="servicios" aria-labelledby="services-heading">
     <div class="section__inner">
       <header class="section__head">
-        <p class="section__tag js-reveal">Qué hacemos</p>
-        <h2 class="section__title js-reveal" id="services-heading">
+        <p class="section__tag js-reveal" data-i18n="services.tag">Qué hacemos</p>
+        <h2 class="section__title js-reveal" id="services-heading"
+            data-i18n-html="services.heading">
           Soluciones que<br /><em>impulsan</em> tu negocio
         </h2>
       </header>
@@ -159,8 +174,8 @@
               <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
             </svg>
           </div>
-          <h3 class="svc-card__title">Desarrollo Web Personalizado</h3>
-          <p class="svc-card__desc">
+          <h3 class="svc-card__title" data-i18n="services.web.title">Desarrollo Web Personalizado</h3>
+          <p class="svc-card__desc" data-i18n="services.web.desc">
             Soluciones únicas adaptadas a las necesidades de tu negocio.
             Desde landing pages hasta plataformas complejas con lógica a medida.
           </p>
@@ -173,8 +188,8 @@
               <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3 class="svc-card__title">Integración con IA</h3>
-          <p class="svc-card__desc">
+          <h3 class="svc-card__title" data-i18n="services.ai.title">Integración con IA</h3>
+          <p class="svc-card__desc" data-i18n="services.ai.desc">
             Inteligencia Artificial aplicada a tus sistemas para automatizar
             decisiones, analizar datos y maximizar la capacidad operativa.
           </p>
@@ -187,8 +202,8 @@
               <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
             </svg>
           </div>
-          <h3 class="svc-card__title">Automatización de Procesos</h3>
-          <p class="svc-card__desc">
+          <h3 class="svc-card__title" data-i18n="services.auto.title">Automatización de Procesos</h3>
+          <p class="svc-card__desc" data-i18n="services.auto.desc">
             Eliminamos tareas repetitivas, reducimos errores y mejoramos la
             eficiencia operativa de tu empresa con flujos automatizados.
           </p>
@@ -202,11 +217,12 @@
   <section class="technologies" id="tecnologias" aria-labelledby="tech-heading">
     <div class="section__inner">
       <header class="section__head section__head--center">
-        <p class="section__tag js-reveal">Stack tecnológico</p>
-        <h2 class="section__title js-reveal" id="tech-heading">
+        <p class="section__tag js-reveal" data-i18n="tech.tag">Stack tecnológico</p>
+        <h2 class="section__title js-reveal" id="tech-heading"
+            data-i18n-html="tech.heading">
           Herramientas de<br /><em>clase mundial</em>
         </h2>
-        <p class="section__desc js-reveal">
+        <p class="section__desc js-reveal" data-i18n="tech.desc">
           Trabajamos con las tecnologías más modernas y probadas para garantizar
           resultados robustos, rápidos y escalables.
         </p>
@@ -227,15 +243,15 @@
         </div>
         <div class="tech-card js-stagger" role="listitem">
           <span class="tech-card__name">Python</span>
-          <span class="tech-card__label">Backend / IA</span>
+          <span class="tech-card__label" data-i18n="tech.label.backend-ai">Backend / IA</span>
         </div>
         <div class="tech-card js-stagger" role="listitem">
           <span class="tech-card__name">Claude / OpenAI</span>
-          <span class="tech-card__label">IA</span>
+          <span class="tech-card__label" data-i18n="tech.label.ai">IA</span>
         </div>
         <div class="tech-card js-stagger" role="listitem">
           <span class="tech-card__name">PostgreSQL</span>
-          <span class="tech-card__label">Base de datos</span>
+          <span class="tech-card__label" data-i18n="tech.label.db">Base de datos</span>
         </div>
         <div class="tech-card js-stagger" role="listitem">
           <span class="tech-card__name">Vercel</span>
@@ -255,11 +271,12 @@
       <div class="contact__layout">
 
         <div class="contact__info">
-          <p class="section__tag js-reveal">Hablemos</p>
-          <h2 class="section__title js-reveal" id="contact-heading">
+          <p class="section__tag js-reveal" data-i18n="contact.tag">Hablemos</p>
+          <h2 class="section__title js-reveal" id="contact-heading"
+              data-i18n-html="contact.heading">
             Contáctanos para<br /><em>desarrollo a medida</em>
           </h2>
-          <p class="contact__desc js-reveal">
+          <p class="contact__desc js-reveal" data-i18n="contact.desc">
             Convertimos tus ideas en soluciones digitales.
             Escribinos o contactanos directamente por WhatsApp.
           </p>
@@ -269,7 +286,8 @@
                class="channel channel--wa"
                target="_blank"
                rel="noopener noreferrer"
-               aria-label="Contactar por WhatsApp">
+               aria-label="Contactar por WhatsApp"
+               data-i18n-aria="contact.wa.aria">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
               </svg>
@@ -278,7 +296,8 @@
 
             <a href="mailto:hola@redandblue.com"
                class="channel channel--email"
-               aria-label="Enviar correo a hola@redandblue.com">
+               aria-label="Enviar correo a hola@redandblue.com"
+               data-i18n-aria="contact.email.aria">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
@@ -290,37 +309,44 @@
         <form class="contact__form js-reveal-right"
               id="contactForm"
               novalidate
-              aria-label="Formulario de contacto para desarrollo a medida">
+              aria-label="Formulario de contacto para desarrollo a medida"
+              data-i18n-aria="contact.form.aria">
           <div class="field">
-            <label for="name" class="field__label">Nombre completo</label>
+            <label for="name" class="field__label" data-i18n="contact.name.label">Nombre completo</label>
             <input type="text" id="name" name="name" class="field__input"
-                   placeholder="Tu nombre" required autocomplete="name"
+                   placeholder="Tu nombre"
+                   data-i18n-placeholder="contact.name.placeholder"
+                   required autocomplete="name"
                    aria-required="true" />
             <span class="field__error" role="alert" aria-live="polite"></span>
           </div>
 
           <div class="field">
-            <label for="email" class="field__label">Correo electrónico</label>
+            <label for="email" class="field__label" data-i18n="contact.email.label">Correo electrónico</label>
             <input type="email" id="email" name="email" class="field__input"
-                   placeholder="tu@empresa.com" required autocomplete="email"
+                   placeholder="tu@empresa.com"
+                   data-i18n-placeholder="contact.email.placeholder"
+                   required autocomplete="email"
                    aria-required="true" />
             <span class="field__error" role="alert" aria-live="polite"></span>
           </div>
 
           <div class="field">
-            <label for="message" class="field__label">¿En qué podemos ayudarte?</label>
+            <label for="message" class="field__label" data-i18n="contact.msg.label">¿En qué podemos ayudarte?</label>
             <textarea id="message" name="message" class="field__textarea"
                       placeholder="Contanos sobre tu proyecto..."
+                      data-i18n-placeholder="contact.msg.placeholder"
                       required rows="4" aria-required="true"></textarea>
             <span class="field__error" role="alert" aria-live="polite"></span>
           </div>
 
           <button type="submit" class="btn btn--full btn--lg" id="submitBtn">
-            <span class="btn__label">Enviar mensaje</span>
+            <span class="btn__label" data-i18n="contact.submit">Enviar mensaje</span>
             <span class="btn__spinner" aria-hidden="true"></span>
           </button>
 
-          <div class="form__success" id="formSuccess" role="status" aria-live="polite" hidden>
+          <div class="form__success" id="formSuccess" role="status" aria-live="polite" hidden
+               data-i18n="contact.success">
             ✓ Mensaje enviado. Te contactamos en menos de 24hs.
           </div>
         </form>
@@ -333,19 +359,23 @@
   <footer class="footer" role="contentinfo">
     <div class="footer__inner">
       <div class="footer__top">
-        <a href="/" class="logo" aria-label="Red and Blue – Inicio">
+        <a href="/" class="logo"
+           aria-label="Red and Blue – Inicio"
+           data-i18n-aria="footer.logo.aria">
           <span class="logo__red">Red</span><span class="logo__amp">&</span><span class="logo__blue">Blue</span>
         </a>
-        <nav class="footer__nav" aria-label="Navegación de pie de página">
-          <a href="#inicio">Inicio</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#tecnologias">Tecnologías</a>
-          <a href="#contacto">Contacto</a>
+        <nav class="footer__nav"
+             aria-label="Navegación de pie de página"
+             data-i18n-aria="footer.nav.aria">
+          <a href="#inicio" data-i18n="footer.nav.home">Inicio</a>
+          <a href="#servicios" data-i18n="footer.nav.services">Servicios</a>
+          <a href="#tecnologias" data-i18n="footer.nav.tech">Tecnologías</a>
+          <a href="#contacto" data-i18n="footer.nav.contact">Contacto</a>
         </nav>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copy">© 2026 Red and Blue. Todos los derechos reservados.</p>
-        <p class="footer__made">Hecho con precisión en Argentina.</p>
+        <p class="footer__copy" data-i18n="footer.copy">© 2026 Red and Blue. Todos los derechos reservados.</p>
+        <p class="footer__made" data-i18n="footer.made">Hecho con precisión en Argentina.</p>
       </div>
     </div>
   </footer>
