@@ -65,7 +65,7 @@ const translations = {
     'contact.heading':          'Contáctanos para<br /><em>desarrollo a medida</em>',
     'contact.desc':             'Convertimos tus ideas en soluciones digitales. Escribinos o contactanos directamente por WhatsApp.',
     'contact.wa.aria':          'Contactar por WhatsApp',
-    'contact.email.aria':       'Enviar correo a hola@redandblue.com',
+    'contact.email.aria':       'Enviar correo a contact@redandblue.dev',
     'contact.form.aria':        'Formulario de contacto para desarrollo a medida',
     'contact.name.label':       'Nombre completo',
     'contact.name.placeholder': 'Tu nombre',
@@ -87,7 +87,7 @@ const translations = {
     'footer.nav.tech':          'Tecnologías',
     'footer.nav.contact':       'Contacto',
     'footer.copy':              '© 2026 Red and Blue. Todos los derechos reservados.',
-    'footer.made':              'Hecho con precisión en Argentina.',
+    'footer.made':              'Hecho con precisión en Uruguay.',
   },
 
   /* ── ENGLISH ── */
@@ -137,7 +137,7 @@ const translations = {
     'contact.heading':          'Contact us for<br /><em>custom development</em>',
     'contact.desc':             'We turn your ideas into digital solutions. Write to us or reach us directly via WhatsApp.',
     'contact.wa.aria':          'Contact via WhatsApp',
-    'contact.email.aria':       'Send email to hola@redandblue.com',
+    'contact.email.aria':       'Send email to contact@redandblue.dev',
     'contact.form.aria':        'Contact form for custom development',
     'contact.name.label':       'Full name',
     'contact.name.placeholder': 'Your name',
@@ -159,7 +159,7 @@ const translations = {
     'footer.nav.tech':          'Technologies',
     'footer.nav.contact':       'Contact',
     'footer.copy':              '© 2026 Red and Blue. All rights reserved.',
-    'footer.made':              'Made with precision in Argentina.',
+    'footer.made':              'Made with precision in Uruguay.',
   },
 };
 

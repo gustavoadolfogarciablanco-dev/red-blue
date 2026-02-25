@@ -251,7 +251,7 @@ form?.addEventListener('submit', async (e) => {
     const body    = encodeURIComponent(
       `Nombre: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`
     );
-    window.location.href = `mailto:hola@redandblue.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@redandblue.dev?subject=${subject}&body=${body}`;
   } finally {
     submitBtn?.classList.remove('btn--loading');
     submitBtn.disabled = false;
