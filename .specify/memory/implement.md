@@ -108,8 +108,8 @@ Ejecutar todas las tareas definidas en `/speckit.tasks` para construir una landi
    <meta property="og:title" content="Red and Blue – Desarrollo Web a Medida" />
    <meta property="og:description" content="Creamos software seguro, rápido y escalable, con minimalismo corporativo e innovación." />
    <meta property="og:type" content="website" />
-   <meta property="og:url" content="https://redandblue.com" />
-   <meta property="og:image" content="https://redandblue.com/preview-image.png" />
+   <meta property="og:url" content="https://redandblue.dev" />
+   <meta property="og:image" content="https://redandblue.dev/preview-image.png" />
    ```
 2. Agregar JSON-LD para schema markup de organización.
 3. Generar sitemap.xml.
