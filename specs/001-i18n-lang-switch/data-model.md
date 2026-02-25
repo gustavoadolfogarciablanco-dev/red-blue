@@ -96,7 +96,7 @@ translations
 | `contact.submit`          | "Enviar mensaje"                                              |
 | `contact.success`         | "✓ Mensaje enviado. Te contactamos en menos de 24hs."         |
 | `contact.wa.aria`         | "Contactar por WhatsApp"                                      |
-| `contact.email.aria`      | "Enviar correo a hola@redandblue.com"                         |
+| `contact.email.aria`      | "Enviar correo a contact@redandblue.dev"                         |
 
 #### `footer`
 | Key                | ES value (reference)                             |
