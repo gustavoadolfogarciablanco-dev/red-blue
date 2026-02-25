@@ -1,22 +1,93 @@
 {
   "section": "Servicios",
+  "intro": "Cada servicio está diseñado para resolver desafíos reales de negocio con tecnología de vanguardia y las mejores prácticas de la industria.",
+  "cta": "Solicitar información",
   "template": {
     "type": "card",
     "items": [
       {
-        "title": "Desarrollo Web Personalizado",
-        "description": "Soluciones únicas adaptadas a tus necesidades específicas de negocio.",
-        "icon": "https://redandblue.dev/icons/development.png"
+        "title": "Desarrollo Web a Medida",
+        "subtitle": "Plataformas robustas para empresas en crecimiento",
+        "description": "Diseñamos y construimos soluciones web únicas adaptadas a las necesidades específicas de tu empresa. Desde portales corporativos hasta plataformas complejas con lógica personalizada.",
+        "bullets": [
+          "Aplicaciones web escalables y seguras",
+          "Arquitectura de microservicios",
+          "Integraciones con sistemas existentes (ERP, CRM)",
+          "Panel de administración personalizado",
+          "Optimización de rendimiento y SEO"
+        ],
+        "cta": "Solicitar información",
+        "icon": "browser"
+      },
+      {
+        "title": "Integración de IA",
+        "subtitle": "Inteligencia artificial aplicada a tu operación",
+        "description": "Implementamos modelos de IA que automatizan decisiones, analizan datos y maximizan la capacidad operativa de tu empresa con resultados medibles.",
+        "bullets": [
+          "Chatbots y asistentes inteligentes",
+          "Análisis predictivo de datos",
+          "Procesamiento de lenguaje natural (NLP)",
+          "Automatización de documentos con IA",
+          "Dashboards inteligentes con insights"
+        ],
+        "cta": "Solicitar información",
+        "icon": "spark"
       },
       {
         "title": "Automatización de Procesos",
-        "description": "Optimización de tus procesos internos para un rendimiento más eficiente.",
-        "icon": "https://redandblue.dev/icons/automation.png"
+        "subtitle": "Eficiencia operativa sin tareas repetitivas",
+        "description": "Eliminamos tareas repetitivas, reducimos errores y mejoramos la eficiencia operativa de tu empresa con flujos de trabajo automatizados y conectados.",
+        "bullets": [
+          "Workflows automatizados end-to-end",
+          "Integración de APIs y servicios",
+          "Reducción de errores operativos",
+          "Reportes y alertas automáticas",
+          "Escalabilidad sin aumentar equipo"
+        ],
+        "cta": "Solicitar información",
+        "icon": "workflow"
       },
       {
-        "title": "Integración con IA",
-        "description": "Inteligencia Artificial aplicada a tus sistemas para maximizar su capacidad.",
-        "icon": "https://redandblue.dev/icons/ai.png"
+        "title": "Experiencia Digital y UX",
+        "subtitle": "Experiencias digitales centradas en el usuario",
+        "description": "Investigamos, diseñamos y optimizamos interfaces que convierten y escalan, alineadas a tu marca y objetivos de negocio.",
+        "bullets": [
+          "Investigación de usuarios y benchmarking",
+          "Arquitectura de información y flujos",
+          "Design systems y UI kits",
+          "Prototipado y testing de usabilidad",
+          "Optimización de conversión y accesibilidad"
+        ],
+        "cta": "Solicitar información",
+        "icon": "ux"
+      },
+      {
+        "title": "Analítica y Data Intelligence",
+        "subtitle": "Decisiones basadas en datos confiables",
+        "description": "Instrumentamos medición, integración y visualización para transformar datos en decisiones rápidas y accionables.",
+        "bullets": [
+          "Tracking de eventos y embudos",
+          "Integración de fuentes y ETL",
+          "Dashboards ejecutivos y BI",
+          "Métricas y OKRs operativos",
+          "Alertas y monitoreo continuo"
+        ],
+        "cta": "Solicitar información",
+        "icon": "analytics"
+      },
+      {
+        "title": "Cloud y DevOps",
+        "subtitle": "Infraestructura confiable para escalar sin friccion",
+        "description": "Disenamos, automatizamos y optimizamos entornos cloud para acelerar despliegues, mejorar la estabilidad y reducir costos operativos.",
+        "bullets": [
+          "Infraestructura como codigo (IaC)",
+          "CI/CD y despliegues automatizados",
+          "Observabilidad, logs y alertas",
+          "Hardening y seguridad en cloud",
+          "Optimizacion de costos y rendimiento"
+        ],
+        "cta": "Solicitar información",
+        "icon": "cloud"
       }
     ]
   }
