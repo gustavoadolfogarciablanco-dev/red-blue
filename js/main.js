@@ -171,6 +171,130 @@ if (document.readyState === 'loading') {
 
 
 /* ─────────────────────────────────────────
+   TECH STACK FILTERS
+───────────────────────────────────────── */
+function initTechFilters() {
+  const filterButtons = Array.from(document.querySelectorAll('.tech-filter'));
+  const cards = Array.from(document.querySelectorAll('.tech-card[data-tech-category]'));
+  const countValue = document.querySelector('.tech-count__value');
+  if (!filterButtons.length || !cards.length) return;
+
+  cards.forEach((card) => {
+    if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+  });
+
+  function setActiveFilter(filter) {
+    filterButtons.forEach((btn) => {
+      const isActive = btn.dataset.filter === filter;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const matches = filter === 'all' || card.dataset.techCategory === filter;
+      card.classList.toggle('tech-card--hidden', !matches);
+      if (matches) visibleCount += 1;
+    });
+
+    if (countValue) countValue.textContent = String(visibleCount);
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      setActiveFilter(btn.dataset.filter || 'all');
+    });
+  });
+
+  setActiveFilter('all');
+}
+
+initTechFilters();
+
+
+/* ─────────────────────────────────────────
+   TECH STACK CARDS
+───────────────────────────────────────── */
+function initTechCards() {
+  const cards = Array.from(document.querySelectorAll('.tech-card'));
+  const logos = Array.from(document.querySelectorAll('.tech-card__logo-img'));
+  if (!cards.length || !logos.length) return;
+
+  const rootStyles = getComputedStyle(document.documentElement);
+  const red = rootStyles.getPropertyValue('--red').trim().replace('#', '') || 'E8192C';
+  const blue = rootStyles.getPropertyValue('--blue').trim().replace('#', '') || '1A3FAA';
+
+  const buildIconUrls = (slug, color) => [
+    `https://cdn.simpleicons.org/${slug}/${color}`,
+    `https://cdn.simpleicons.org/${slug}?color=${color}`,
+    `https://cdn.simpleicons.org/${slug}`,
+  ];
+
+  logos.forEach((logo, index) => {
+    const color = index % 2 === 0 ? red : blue;
+    const logoWrapper = logo.closest('.tech-card__logo');
+    const card = logo.closest('.tech-card');
+    let slug = '';
+    try {
+      const url = new URL(logo.src, window.location.href);
+      slug = logo.dataset.logo || url.pathname.split('/').filter(Boolean)[0] || '';
+    } catch {
+      slug = logo.dataset.logo || '';
+    }
+
+    const fallbacks = (logo.dataset.logoFallback || '')
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+
+    const slugs = [slug, ...fallbacks].filter(Boolean);
+    if (!slugs.length) return;
+
+    const queue = slugs.flatMap((item) => buildIconUrls(item, color));
+    const loadNext = () => {
+      const next = queue.shift();
+      if (!next) {
+        if (logoWrapper) logoWrapper.classList.add('is-hidden');
+        if (card) card.classList.add('is-logo-missing');
+        return;
+      }
+      logo.src = next;
+    };
+
+    logo.addEventListener('load', () => {
+      if (logoWrapper) logoWrapper.classList.remove('is-hidden');
+      if (card) card.classList.remove('is-logo-missing');
+    });
+    logo.addEventListener('error', loadNext);
+    loadNext();
+  });
+
+  const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  if (!isTouch) return;
+
+  const clearFlips = () => {
+    cards.forEach((card) => card.classList.remove('is-flipped'));
+  };
+
+  cards.forEach((card) => {
+    card.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const isFlipped = card.classList.toggle('is-flipped');
+      if (isFlipped) {
+        cards.forEach((other) => {
+          if (other !== card) other.classList.remove('is-flipped');
+        });
+      }
+    });
+  });
+
+  document.addEventListener('click', clearFlips);
+}
+
+initTechCards();
+
+
+/* ─────────────────────────────────────────
    CONTACT FORM
 ───────────────────────────────────────── */
 const form      = document.getElementById('contactForm');
