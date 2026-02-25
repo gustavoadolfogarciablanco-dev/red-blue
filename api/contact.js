@@ -9,7 +9,7 @@
  *   4. Replace TO_EMAIL with your receiving address
  */
 
-const FROM_EMAIL = 'noreply@redandblue.com';
+const FROM_EMAIL = 'contact@redandblue.dev';
 const TO_EMAIL   = 'contact@redandblue.dev';
 
 export default async function handler(req, res) {
