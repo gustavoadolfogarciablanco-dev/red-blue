@@ -66,19 +66,6 @@
   <!-- Screen reader language announcer (accessibility T021) -->
   <span id="lang-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></span>
 
-  <!-- Grain texture overlay -->
-  <svg class="grain-svg" aria-hidden="true" focusable="false">
-    <filter id="grain-filter" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise" />
-      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise" />
-      <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blended" />
-      <feComponentTransfer in="blended">
-        <feFuncA type="linear" slope="1" />
-      </feComponentTransfer>
-    </filter>
-    <rect width="100%" height="100%" filter="url(#grain-filter)" />
-  </svg>
-
   <!-- Navigation -->
   <nav class="nav" role="navigation"
        aria-label="Navegación principal"
@@ -172,11 +159,6 @@
 
       <div class="services__grid">
         <article class="svc-card js-stagger" role="article">
-          <div class="svc-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-            </svg>
-          </div>
           <p class="svc-card__kicker" data-i18n="services.web.kicker">Plataformas robustas para empresas en crecimiento</p>
           <h3 class="svc-card__title" data-i18n="services.web.title">Desarrollo Web a Medida</h3>
           <p class="svc-card__desc" data-i18n="services.web.desc">
@@ -193,13 +175,6 @@
         </article>
 
         <article class="svc-card svc-card--alt js-stagger" role="article">
-          <div class="svc-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 12h6l2-4 2 8 2-4h4"/>
-              <path d="M4 5h6M14 5h6"/>
-              <path d="M4 19h6M14 19h6"/>
-            </svg>
-          </div>
           <p class="svc-card__kicker" data-i18n="services.cloud.kicker">Infraestructura confiable para escalar sin friccion</p>
           <h3 class="svc-card__title" data-i18n="services.cloud.title">Cloud y DevOps</h3>
           <p class="svc-card__desc" data-i18n="services.cloud.desc">
@@ -216,12 +191,6 @@
         </article>
 
         <article class="svc-card js-stagger" role="article">
-          <div class="svc-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 7h10M3 12h14M3 17h10"/>
-              <path d="M17 6l4 4-4 4"/>
-            </svg>
-          </div>
           <p class="svc-card__kicker" data-i18n="services.ux.kicker">Experiencias digitales centradas en el usuario</p>
           <h3 class="svc-card__title" data-i18n="services.ux.title">Experiencia Digital y UX</h3>
           <p class="svc-card__desc" data-i18n="services.ux.desc">
@@ -238,15 +207,6 @@
         </article>
 
         <article class="svc-card svc-card--alt js-stagger" role="article">
-          <div class="svc-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 19V5"/>
-              <path d="M8 19V9"/>
-              <path d="M12 19V12"/>
-              <path d="M16 19V7"/>
-              <path d="M20 19V10"/>
-            </svg>
-          </div>
           <p class="svc-card__kicker" data-i18n="services.data.kicker">Decisiones basadas en datos confiables</p>
           <h3 class="svc-card__title" data-i18n="services.data.title">Analítica y Data Intelligence</h3>
           <p class="svc-card__desc" data-i18n="services.data.desc">
@@ -263,12 +223,6 @@
         </article>
 
         <article class="svc-card js-stagger" role="article">
-          <div class="svc-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 3c3.314 0 6 2.239 6 5 0 1.636-.94 3.089-2.4 4.02-.53.338-.85.933-.85 1.56V15H9.25v-1.42c0-.63-.32-1.22-.85-1.56C6.94 11.09 6 9.636 6 8c0-2.761 2.686-5 6-5z"/>
-              <path d="M9 19h6M10.5 22h3"/>
-            </svg>
-          </div>
           <p class="svc-card__kicker" data-i18n="services.ai.kicker">Inteligencia artificial aplicada a tu operación</p>
           <h3 class="svc-card__title" data-i18n="services.ai.title">Integración de IA</h3>
           <p class="svc-card__desc" data-i18n="services.ai.desc">
@@ -285,13 +239,6 @@
         </article>
 
         <article class="svc-card svc-card--alt js-stagger" role="article">
-          <div class="svc-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 7h6M4 12h10M4 17h8"/>
-              <path d="M18 7l2 2-2 2"/>
-              <path d="M18 12l2 2-2 2"/>
-            </svg>
-          </div>
           <p class="svc-card__kicker" data-i18n="services.auto.kicker">Eficiencia operativa sin tareas repetitivas</p>
           <h3 class="svc-card__title" data-i18n="services.auto.title">Automatización de Procesos</h3>
           <p class="svc-card__desc" data-i18n="services.auto.desc">
@@ -313,51 +260,693 @@
   <!-- ===================== TECNOLOGÍAS ===================== -->
   <section class="technologies" id="tecnologias" aria-labelledby="tech-heading">
     <div class="section__inner">
-      <header class="section__head section__head--center">
-        <p class="section__tag js-reveal" data-i18n="tech.tag">Stack tecnológico</p>
+      <header class="section__head">
+        <p class="section__tag js-reveal" data-i18n="tech.tag">Stack tecnologico</p>
         <h2 class="section__title js-reveal" id="tech-heading"
             data-i18n-html="tech.heading">
-          Herramientas de<br /><em>clase mundial</em>
+          Herramientas que <em>potencian resultados</em>
         </h2>
         <p class="section__desc js-reveal" data-i18n="tech.desc">
-          Trabajamos con las tecnologías más modernas y probadas para garantizar
-          resultados robustos, rápidos y escalables.
+          Dominamos un ecosistema completo de tecnologias de vanguardia, desde frontend y backend hasta inteligencia artificial e infraestructura cloud.
         </p>
       </header>
 
-      <div class="tech__grid" role="list">
-        <div class="tech-card js-stagger" role="listitem">
-          <span class="tech-card__name">HTML5 / CSS3</span>
-          <span class="tech-card__label">Frontend</span>
+      <div class="tech-toolbar js-reveal">
+        <div class="tech-filters" role="tablist" aria-label="Filtros de tecnologia" data-i18n-aria="tech.filters.aria">
+          <button class="tech-filter is-active" type="button" data-filter="all" aria-pressed="true" data-i18n="tech.filter.all">Todos</button>
+          <button class="tech-filter" type="button" data-filter="frontend" aria-pressed="false" data-i18n="tech.filter.frontend">Frontend</button>
+          <button class="tech-filter" type="button" data-filter="backend" aria-pressed="false" data-i18n="tech.filter.backend">Backend</button>
+          <button class="tech-filter" type="button" data-filter="ai" aria-pressed="false" data-i18n="tech.filter.ai">Inteligencia Artificial</button>
+          <button class="tech-filter" type="button" data-filter="data" aria-pressed="false" data-i18n="tech.filter.data">Data y Analitica</button>
+          <button class="tech-filter" type="button" data-filter="automation" aria-pressed="false" data-i18n="tech.filter.automation">Automatizacion</button>
+          <button class="tech-filter" type="button" data-filter="cloud" aria-pressed="false" data-i18n="tech.filter.cloud">Cloud y DevOps</button>
+          <button class="tech-filter" type="button" data-filter="ux" aria-pressed="false" data-i18n="tech.filter.ux">UX y Producto</button>
         </div>
-        <div class="tech-card js-stagger" role="listitem">
-          <span class="tech-card__name">JavaScript ES6+</span>
-          <span class="tech-card__label">Frontend</span>
+        <div class="tech-count" role="status" aria-live="polite">
+          <span class="tech-count__label" data-i18n="tech.count.label">Mostrando</span>
+          <span class="tech-count__value">0</span>
+          <span class="tech-count__suffix" data-i18n="tech.count.suffix">tecnologias</span>
         </div>
-        <div class="tech-card js-stagger" role="listitem">
-          <span class="tech-card__name">Node.js</span>
-          <span class="tech-card__label">Backend</span>
-        </div>
-        <div class="tech-card js-stagger" role="listitem">
-          <span class="tech-card__name">Python</span>
-          <span class="tech-card__label" data-i18n="tech.label.backend-ai">Backend / IA</span>
-        </div>
-        <div class="tech-card js-stagger" role="listitem">
-          <span class="tech-card__name">Claude / OpenAI</span>
-          <span class="tech-card__label" data-i18n="tech.label.ai">IA</span>
-        </div>
-        <div class="tech-card js-stagger" role="listitem">
-          <span class="tech-card__name">PostgreSQL</span>
-          <span class="tech-card__label" data-i18n="tech.label.db">Base de datos</span>
-        </div>
-        <div class="tech-card js-stagger" role="listitem">
-          <span class="tech-card__name">Vercel</span>
-          <span class="tech-card__label">Deploy</span>
-        </div>
-        <div class="tech-card js-stagger" role="listitem">
-          <span class="tech-card__name">GitHub Actions</span>
-          <span class="tech-card__label">DevOps</span>
-        </div>
+      </div>
+
+      <div class="tech-grid" role="list">
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/react" alt="React logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">React</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.react">Ecosistema lider para interfaces dinamicas con arquitectura basada en componentes.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/nextdotjs" alt="Next.js logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Next.js</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.next">Framework full stack con SSR, ISR y routing moderno para apps empresariales.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/angular" alt="Angular logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Angular</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.angular">Plataforma enterprise con tipado estricto e integraciones robustas.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/vuedotjs" alt="Vue.js logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Vue.js</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.vue">Framework progresivo con excelente performance y curva de aprendizaje rapida.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/typescript" alt="TypeScript logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">TypeScript</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.typescript">Tipado estatico para codigo mantenible y predecible en produccion.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/javascript" alt="JavaScript logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">JavaScript</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.javascript">Lenguaje base del front moderno para interacciones ricas y performance.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/nuxtdotjs" alt="Nuxt logo" loading="lazy" decoding="async" data-logo="nuxtdotjs" />
+              </span>
+              <h3 class="tech-card__name">Nuxt</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.nuxt">Framework Vue para SSR y performance con DX empresarial.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/html5" alt="HTML5 logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">HTML5 / CSS3</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.htmlcss">Interfaces semanticas, accesibles y optimizadas para SEO.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ux">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/figma" alt="Figma logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Figma</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.figma">Diseno colaborativo para prototipos, UI kits y handoff fluido.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ux">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/mui" alt="Material UI logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Material UI</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.designsystems">Sistemas escalables que aseguran consistencia visual y velocidad.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ux">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/storybook" alt="Storybook logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Storybook</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.storybook">Catalogo vivo de componentes para equipos distribuidos.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="automation">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/n8n" alt="n8n logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">n8n</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.n8n">Workflows flexibles para integraciones y automatizacion operativa.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="automation">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/zapier" alt="Zapier logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Zapier / Make</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.zapier">Automatizacion no-code para conectar apps y procesos.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="automation">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/apacheairflow" alt="Apache Airflow logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Apache Airflow</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.airflow">Orquestacion de pipelines y trabajos criticos.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="automation">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/uipath" alt="UiPath logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">UiPath</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.uipath">RPA para procesos repetitivos y tareas de backoffice.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="backend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Node.js</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.node">Runtime de alta concurrencia para APIs y servicios en tiempo real.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="backend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/python" alt="Python logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Python</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.python">APIs, data pipelines y automatizacion con frameworks productivos.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="backend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/openjdk" alt="Java logo" loading="lazy" decoding="async" data-logo="openjdk" />
+              </span>
+              <h3 class="tech-card__name">Java</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.java">Microservicios empresariales con alta disponibilidad y escalabilidad.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="backend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/dotnet" alt=".NET logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">.NET</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.dotnet">Plataforma robusta para servicios empresariales y APIs seguras.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="backend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/go" alt="Go logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Go</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.go">Servicios eficientes para alta concurrencia y baja latencia.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="backend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/graphql" alt="GraphQL logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">GraphQL</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.graphql">APIs flexibles para integrar frontend, mobile y partners.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="backend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/rust" alt="Rust logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Rust</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.rust">Servicios seguros y de alto rendimiento para sistemas criticos.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="backend">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/nestjs" alt="NestJS logo" loading="lazy" decoding="async" data-logo="nestjs" />
+              </span>
+              <h3 class="tech-card__name">NestJS</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.nest">Framework Node enterprise con arquitectura modular y escalable.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="data">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/postgresql" alt="PostgreSQL logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">PostgreSQL</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.postgres">Base de datos relacional con ACID, replicacion y analitica avanzada.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="data">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/mongodb" alt="MongoDB logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">MongoDB</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.mongo">NoSQL flexible para datos semi estructurados y escalado horizontal.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="data">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/snowflake" alt="Snowflake logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Snowflake</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.snowflake">Data warehouse elastico para analitica empresarial.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="data">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/googlebigquery" alt="BigQuery logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">BigQuery</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.bigquery">Analitica serverless con consultas masivas en segundos.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="data">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/apachekafka" alt="Apache Kafka logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Apache Kafka</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.kafka">Streaming de eventos para integraciones en tiempo real.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="data">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/dbt" alt="dbt logo" loading="lazy" decoding="async" data-logo="dbt" data-logo-fallback="dbtlabs,dbt-labs" />
+              </span>
+              <h3 class="tech-card__name">dbt</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.dbt">Transformacion de datos con versionado y pruebas.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="data">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/redis" alt="Redis logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Redis</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.redis">Cache y colas para respuestas ultrarrapidas.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="data">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/splunk" alt="Splunk logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Splunk</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.splunk">Observabilidad y analitica operativa con busqueda en tiempo real.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ai">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/openai" alt="OpenAI logo" loading="lazy" decoding="async" data-logo="openai" data-logo-fallback="open-ai,openai" />
+              </span>
+              <h3 class="tech-card__name">OpenAI / GPT</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.openai">Modelos de lenguaje para automatizacion, analisis y generacion de contenido.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ai">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/anthropic" alt="Anthropic logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Anthropic</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.claude">LLM avanzado para razonamiento, analisis documental y asistentes.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ai">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/langchain" alt="LangChain logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">LangChain</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.langchain">Orquestacion de agentes, RAG y flujos de razonamiento.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ai">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/pinecone" alt="Pinecone logo" loading="lazy" decoding="async" data-logo="pinecone" data-logo-fallback="pineconeio,pineconedotio" />
+              </span>
+              <h3 class="tech-card__name">Pinecone</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.vector">Pinecone, Weaviate y FAISS para busquedas semanticas.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ai">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/opencv" alt="OpenCV logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">OpenCV</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.vision">Deteccion de objetos, OCR y analitica visual automatizada.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ai">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/tensorflow" alt="TensorFlow logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">TensorFlow</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.ml">Modelos predictivos con TensorFlow y PyTorch para produccion.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ai">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/spacy" alt="spaCy logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">spaCy</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.nlp">Procesamiento de lenguaje para insights, resumen y entidades.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="cloud">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/amazonaws" alt="AWS logo" loading="lazy" decoding="async" data-logo="amazonaws" data-logo-fallback="aws,amazonwebservices" />
+              </span>
+              <h3 class="tech-card__name">AWS</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.aws">Servicios cloud globales para computo, storage y redes.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="ux">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/amplitude" alt="Amplitude logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Amplitude</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.amplitude">Producto y analytics para mejorar activacion, retencion y conversion.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="cloud">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/microsoftazure" alt="Azure logo" loading="lazy" decoding="async" data-logo="microsoftazure" data-logo-fallback="azure,microsoft-azure" />
+              </span>
+              <h3 class="tech-card__name">Azure</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.azure">Cloud enterprise con integracion a ecosistemas Microsoft.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="cloud">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/googlecloud" alt="Google Cloud logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Google Cloud</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.gcp">Infraestructura escalable con foco en datos y AI.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="cloud">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/docker" alt="Docker logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Docker / Kubernetes</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.docker">Contenedores y orquestacion para despliegues reproducibles.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="cloud">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/terraform" alt="Terraform logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Terraform</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.terraform">Infraestructura como codigo para provisioning repetible.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="cloud">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/githubactions" alt="GitHub Actions logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">GitHub Actions</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.gha">CI/CD automatizado con testing y despliegue continuo.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="cloud">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/vercel" alt="Vercel logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Vercel</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.vercel">Deploys atomicos y edge network para performance global.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="tech-card js-stagger" role="listitem" data-tech-category="cloud">
+          <div class="tech-card__inner">
+            <div class="tech-card__face tech-card__face--front">
+              <span class="tech-card__logo">
+                <img class="tech-card__logo-img" src="https://cdn.simpleicons.org/grafana" alt="Grafana logo" loading="lazy" decoding="async" />
+              </span>
+              <h3 class="tech-card__name">Datadog / Grafana</h3>
+            </div>
+            <div class="tech-card__face tech-card__face--back">
+              <p class="tech-card__desc" data-i18n="tech.card.observability">Observabilidad, alertas y metricas para operaciones confiables.</p>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
