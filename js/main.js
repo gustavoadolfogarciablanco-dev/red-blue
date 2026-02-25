@@ -49,7 +49,7 @@ document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
 const nav = document.querySelector('.nav');
 
 function updateNavScroll() {
-  nav?.classList.toggle('scrolled', window.scrollY > 4);
+  nav?.classList.toggle('scrolled', window.scrollY > 0);
 }
 
 window.addEventListener('scroll', updateNavScroll, { passive: true });
