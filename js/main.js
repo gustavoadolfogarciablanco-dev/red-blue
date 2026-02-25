@@ -2,6 +2,13 @@
  * Red and Blue – Main JavaScript
  * Handles: theme toggle, GSAP animations, scroll reveal, form validation & submission
  */
+import { initI18n, t } from './i18n.js';
+
+/* ─────────────────────────────────────────
+   i18n – MUST RUN FIRST
+───────────────────────────────────────── */
+initI18n();
+
 
 /* ─────────────────────────────────────────
    THEME TOGGLE (light / dark / auto)
@@ -170,9 +177,9 @@ const submitBtn = document.getElementById('submitBtn');
 const success   = document.getElementById('formSuccess');
 
 const VALIDATORS = {
-  name:    (v) => v.trim().length >= 2  ? '' : 'Por favor ingresá tu nombre.',
-  email:   (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Ingresá un email válido.',
-  message: (v) => v.trim().length >= 10 ? '' : 'El mensaje debe tener al menos 10 caracteres.',
+  name:    (v) => v.trim().length >= 2  ? '' : t('contact.error.name'),
+  email:   (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : t('contact.error.email'),
+  message: (v) => v.trim().length >= 10 ? '' : t('contact.error.message'),
 };
 
 function getField(name) {
