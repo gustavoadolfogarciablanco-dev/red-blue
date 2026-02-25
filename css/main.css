@@ -294,6 +294,30 @@ em { font-style: italic; }
   outline-offset: 2px;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .lang-btn {
+    color: var(--text);
+    border-color: rgba(240, 240, 250, 0.28);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  :root:not([data-theme="light"]) .lang-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(240, 240, 250, 0.45);
+  }
+}
+
+[data-theme="dark"] .lang-btn {
+  color: var(--text);
+  border-color: rgba(240, 240, 250, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+}
+[data-theme="dark"] .lang-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(240, 240, 250, 0.45);
+}
+
 
 /* ── SECTION COMMONS ── */
 .section__inner {
