@@ -2,7 +2,7 @@
  * Red and Blue – Main JavaScript
  * Handles: theme toggle, GSAP animations, scroll reveal, form validation & submission
  */
-import { initI18n, t } from './i18n.js';
+import { initI18n, t } from './i18n.js?v=20260225-6';
 
 /* ─────────────────────────────────────────
    i18n – MUST RUN FIRST
