@@ -9,5 +9,5 @@
 - [x] T004 Ensure no layout shift or jitter
 
 ## Phase 3: Verify
-- [ ] T005 Verify readability at first scroll
-- [ ] T006 Verify light and dark theme behavior
+- [x] T005 Verify readability at first scroll
+- [x] T006 Verify light and dark theme behavior
