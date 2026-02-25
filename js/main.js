@@ -43,16 +43,17 @@ document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
 
 /* ─────────────────────────────────────────
    NAV SCROLL STATE
+   Toggles .scrolled from the very first pixel of scroll so the
+   nav always has readable contrast over the hero background.
 ───────────────────────────────────────── */
 const nav = document.querySelector('.nav');
 
-const navObserver = new IntersectionObserver(
-  ([entry]) => nav?.classList.toggle('scrolled', !entry.isIntersecting),
-  { rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '68')}px 0px 0px 0px` }
-);
+function updateNavScroll() {
+  nav?.classList.toggle('scrolled', window.scrollY > 4);
+}
 
-const heroSection = document.querySelector('.hero');
-if (heroSection) navObserver.observe(heroSection);
+window.addEventListener('scroll', updateNavScroll, { passive: true });
+updateNavScroll(); // apply correct state on load
 
 
 /* ─────────────────────────────────────────
