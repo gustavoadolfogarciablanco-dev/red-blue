@@ -192,6 +192,10 @@ const translations = {
     'footer.nav.contact':       'Contacto',
     'footer.copy':              '© 2026 Red and Blue. Todos los derechos reservados.',
     'footer.made':              'Hecho con precisión en Uruguay.',
+
+    // Loading
+    'loading.label':            'Cargando',
+    'loading.aria':             'Cargando contenido',
   },
 
   /* ── ENGLISH ── */
@@ -368,6 +372,10 @@ const translations = {
     'footer.nav.contact':       'Contact',
     'footer.copy':              '© 2026 Red and Blue. All rights reserved.',
     'footer.made':              'Made with precision in Uruguay.',
+
+    // Loading
+    'loading.label':            'Loading',
+    'loading.aria':             'Loading content',
   },
 };
 
@@ -468,10 +476,14 @@ function detectLanguage() {
  * Initialize i18n on page load.
  * Call once, before GSAP animations.
  */
-export function initI18n() {
+export function initI18n(onReady) {
   const init = () => {
     const lang = detectLanguage();
     applyLanguage(lang);
+
+    if (typeof onReady === 'function') {
+      onReady(lang);
+    }
 
     const langBtn = document.getElementById('langToggle');
     if (langBtn && !langBtn.dataset.i18nBound) {
