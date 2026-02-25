@@ -5,6 +5,8 @@
 **Status**: Draft
 **Input**: Samsung S25 Ultra shows horizontal scroll and the loader shows translation keys.
 
+**Observed Cause (analysis)**: The production i18n bundle can be stale or missing the `loading.*` entries, so `t(key)` falls back to the raw key and replaces the label with `loading.label`.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - No horizontal scroll on mobile (Priority: P1)
