@@ -261,13 +261,23 @@ function detectLanguage() {
  * Call once, before GSAP animations.
  */
 export function initI18n() {
-  // Detect and apply language
-  const lang = detectLanguage();
-  applyLanguage(lang);
+  const init = () => {
+    const lang = detectLanguage();
+    applyLanguage(lang);
 
-  // Wire toggle button
-  document.getElementById('langToggle')?.addEventListener('click', () => {
-    const next = getCurrentLang() === 'es' ? 'en' : 'es';
-    applyLanguage(next);
-  });
+    const langBtn = document.getElementById('langToggle');
+    if (langBtn && !langBtn.dataset.i18nBound) {
+      langBtn.addEventListener('click', () => {
+        const next = getCurrentLang() === 'es' ? 'en' : 'es';
+        applyLanguage(next);
+      });
+      langBtn.dataset.i18nBound = 'true';
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
 }
