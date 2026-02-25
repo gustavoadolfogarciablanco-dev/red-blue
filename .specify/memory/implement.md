@@ -1,5 +1,14 @@
 # Implementación: Landing Page Red and Blue
 
+> **Estado:** Iteración 1 completada ✅ | Deployment en progreso
+
+## Decisiones técnicas tomadas
+- **Animaciones:** GSAP CDN con guard `.gsap-ready` — si GSAP no carga, el contenido sigue visible
+- **Botones:** `.btn:not(.btn--ghost)` aplica gradiente a todos los tamaños (fix sobre selector anterior que excluía `--sm`)
+- **vercel.json:** solo `headers`, sin `routes` (incompatibles según Vercel v2)
+- **Formulario:** fallback a `mailto:` si la serverless function falla
+- **Tema:** `data-theme` en `<html>` + `localStorage` para persistencia
+
 ## Objetivo
 Ejecutar todas las tareas definidas en `/speckit.tasks` para construir una landing page corporativa, minimalista, profesional e innovadora para Red and Blue, optimizada para SEO orgánico.
 

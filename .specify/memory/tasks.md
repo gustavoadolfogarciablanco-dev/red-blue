@@ -1,61 +1,64 @@
 # Tasks: Landing Page Red and Blue
 
 ## 1️⃣ Hero / Introducción
-- [ ] Crear estructura HTML minimalista
-  - [ ] Title principal con mensaje "Desarrollo a medida, seguro, rápido y escalable"
-  - [ ] Subtítulo breve
-  - [ ] CTA principal: formulario, WhatsApp, correo
-- [ ] Aplicar tipografía refinada y paleta corporativa
-- [ ] Agregar fondo con gradient mesh o grain overlay
-- [ ] Implementar animaciones de carga
-  - [ ] Staggered reveals de título y CTA
-  - [ ] Fade-in sutil de elementos secundarios
-- [ ] Test de responsividad y accesibilidad
+- [x] Crear estructura HTML minimalista
+  - [x] Title principal con mensaje "Desarrollo a medida, seguro, rápido y escalable"
+  - [x] Subtítulo breve
+  - [x] CTA principal: formulario, WhatsApp, correo
+- [x] Aplicar tipografía refinada y paleta corporativa (Syne + DM Sans)
+- [x] Agregar fondo con gradient mesh + grain overlay
+- [x] Implementar animaciones de carga
+  - [x] Staggered reveals de título y CTA (GSAP)
+  - [x] Fade-in sutil de elementos secundarios
+- [x] Test de responsividad y accesibilidad
 
 ## 2️⃣ Servicios
-- [ ] Crear tarjetas interactivas para cada servicio
-  - [ ] Desarrollo web a medida
-  - [ ] Soluciones con IA
-  - [ ] Automatización de procesos
-- [ ] Añadir iconografía o ilustraciones sutiles
-- [ ] Implementar hover effects y scroll-triggered reveals
-- [ ] Layout dinámico: asimétrico, overlapping, negative space generoso
-- [ ] Revisar performance y animaciones suaves
+- [x] Crear tarjetas interactivas para cada servicio
+  - [x] Desarrollo web a medida
+  - [x] Soluciones con IA (card featured con gradiente)
+  - [x] Automatización de procesos
+- [x] Añadir iconografía SVG inline
+- [x] Implementar hover effects y scroll-triggered reveals
+- [x] Layout dinámico: asimétrico, overlapping, negative space generoso
+- [x] Revisar performance y animaciones suaves
 
 ## 3️⃣ Tecnologías
-- [ ] Listar tecnologías y ventajas competitivas en tarjetas
-- [ ] Agregar hover effects y staggered reveals
-- [ ] Mantener minimalismo y estilo corporativo
-- [ ] Revisar responsividad y performance
+- [x] Listar tecnologías y ventajas competitivas en tarjetas
+- [x] Agregar hover effects con línea gradiente inferior
+- [x] Mantener minimalismo y estilo corporativo
+- [x] Revisar responsividad y performance
 
 ## 4️⃣ Contacto / CTA
-- [ ] Crear formulario funcional (nombre, email, mensaje)
-- [ ] Integrar botón de WhatsApp y enlace de correo
-- [ ] Validación de inputs y feedback visual
-- [ ] Agregar microinteractions en botones y campos
-- [ ] Posicionar estratégicamente para máxima conversión
-- [ ] Test de envío y seguridad mínima
+- [x] Crear formulario funcional (nombre, email, mensaje)
+- [x] Integrar botón de WhatsApp y enlace de correo
+- [x] Validación de inputs y feedback visual
+- [x] Agregar microinteractions en botones y campos
+- [x] Posicionar estratégicamente para máxima conversión
+- [x] Seguridad: sanitización de inputs en serverless function
 
 ## 5️⃣ Footer
-- [ ] Crear links corporativos esenciales
-- [ ] Mantener estilo minimalista y jerarquía visual
-- [ ] Revisar responsividad y accesibilidad
+- [x] Crear links corporativos esenciales
+- [x] Mantener estilo minimalista y jerarquía visual
+- [x] Revisar responsividad y accesibilidad
 
 ## 6️⃣ Interacciones y Animaciones Generales
-- [ ] Microinteractions estratégicas: botones, tarjetas, enlaces clave
-- [ ] Scroll-triggered animations en secciones principales
-- [ ] Staggered reveals en hero y tarjetas
-- [ ] Ajuste de timing y easing para animaciones suaves y profesionales
+- [x] Microinteractions estratégicas: botones, tarjetas, enlaces clave
+- [x] Scroll-triggered animations en secciones principales (GSAP ScrollTrigger)
+- [x] Staggered reveals en hero y tarjetas
+- [x] Ajuste de timing y easing para animaciones suaves y profesionales
+- [x] Fix: guard `.gsap-ready` para fallback cuando GSAP no carga desde CDN
 
 ## 7️⃣ Performance y QA
-- [ ] Optimizar imágenes, SVGs y assets
-- [ ] Lazy loading y bundle splitting (si se usa Vite)
-- [ ] Test en mobile, tablet y desktop
-- [ ] Lighthouse score >90
-- [ ] Validación de accesibilidad AA
+- [x] Optimizar imágenes y assets (favicon, preview-image, logo)
+- [ ] Test Lighthouse score >90 (pendiente post-deploy)
+- [ ] Validación de accesibilidad AA (pendiente post-deploy)
+- [x] Test responsividad mobile, tablet y desktop
 
 ## 8️⃣ Deployment
-- [ ] Configurar repositorio en GitHub
-- [ ] Configurar deploy continuo en Vercel
-- [ ] Verificar que todos los formularios funcionen correctamente
-- [ ] Revisar performance y animaciones en producción
+- [x] Configurar repositorio en GitHub (gustavoadolfogarciablanco-dev/red-blue)
+- [x] vercel.json con headers de seguridad y cache
+- [x] Fix: eliminar clave `routes` conflictiva en vercel.json (incompatible con `headers`)
+- [ ] Configurar deploy continuo en Vercel (en progreso)
+- [ ] Agregar variable de entorno RESEND_API_KEY en Vercel
+- [ ] Reemplazar TUNUMERO en index.html con número WhatsApp real
+- [ ] Verificar formulario de contacto en producción
