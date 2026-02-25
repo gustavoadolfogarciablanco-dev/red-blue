@@ -9,5 +9,5 @@
 - [x] T004 Update hover/focus states for readability
 
 ## Phase 3: Verify
-- [ ] T005 Verify dark theme readability
-- [ ] T006 Verify light theme has no regression
+- [x] T005 Verify dark theme readability
+- [x] T006 Verify light theme has no regression
