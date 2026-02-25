@@ -426,22 +426,26 @@ export function applyLanguage(langCode) {
 
   // Text content (simple strings)
   document.querySelectorAll('[data-i18n]').forEach((el) => {
-    el.textContent = t(el.dataset.i18n);
+    const value = t(el.dataset.i18n);
+    if (value !== el.dataset.i18n) el.textContent = value;
   });
 
   // HTML content (strings containing <br>, <em>, etc.)
   document.querySelectorAll('[data-i18n-html]').forEach((el) => {
-    el.innerHTML = t(el.dataset.i18nHtml);
+    const value = t(el.dataset.i18nHtml);
+    if (value !== el.dataset.i18nHtml) el.innerHTML = value;
   });
 
   // Placeholder attributes
   document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
-    el.placeholder = t(el.dataset.i18nPlaceholder);
+    const value = t(el.dataset.i18nPlaceholder);
+    if (value !== el.dataset.i18nPlaceholder) el.placeholder = value;
   });
 
   // aria-label attributes
   document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
-    el.setAttribute('aria-label', t(el.dataset.i18nAria));
+    const value = t(el.dataset.i18nAria);
+    if (value !== el.dataset.i18nAria) el.setAttribute('aria-label', value);
   });
 
   // Update lang toggle button label (shows OTHER language)
