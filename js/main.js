@@ -247,7 +247,7 @@ form?.addEventListener('submit', async (e) => {
 
   } catch {
     // Fallback: open mailto
-    const subject = encodeURIComponent('Consulta desde redandblue.com');
+    const subject = encodeURIComponent('Consulta desde redandblue.dev');
     const body    = encodeURIComponent(
       `Nombre: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`
     );
