@@ -59,7 +59,7 @@ export default async function handler(req, res) {
         subject: `Nueva consulta de ${safeName} – Red and Blue`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px;">
-            <h2 style="color: #1A3FAA; margin-bottom: 24px;">Nueva consulta desde redandblue.com</h2>
+            <h2 style="color: #1A3FAA; margin-bottom: 24px;">Nueva consulta desde redandblue.dev</h2>
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 10px 0; color: #666; font-size: 14px; width: 100px;">Nombre</td>
