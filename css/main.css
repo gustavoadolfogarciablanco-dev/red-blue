@@ -1121,6 +1121,15 @@ em { font-style: italic; }
   .contact__form { padding: 1.75rem; }
 }
 
+@media (max-width: 520px) {
+  .nav__inner { padding: 0 1rem; }
+  .nav__right { gap: 0.5rem; }
+  .logo { font-size: 1.1rem; }
+  .theme-btn { width: 32px; height: 32px; }
+  .lang-btn { min-width: 36px; height: 32px; padding: 0 0.55rem; font-size: 0.6875rem; }
+  .btn--sm { padding: 0.45rem 0.9rem; font-size: 0.75rem; }
+}
+
 @media (max-width: 480px) {
   .tech-grid { grid-template-columns: 1fr; }
   .tech-card { height: 320px; }
