@@ -1,0 +1,28 @@
+{
+  "projectName": "Red and Blue - Landing Page",
+  "aiAgent": "claude",
+  "projectDir": "redandblue-spec",
+  "specifyPath": "./speckit",
+  "languages": ["html", "css", "javascript"],
+  "ui/ux": {
+    "minimalistic": true,
+    "responsive": true,
+    "animations": true,
+    "microinteractions": true
+  },
+  "seo": {
+    "title": "Red and Blue – Desarrollo Web a Medida",
+    "description": "Desarrollo web a medida, automatización de procesos e integración de IA para tu negocio.",
+    "openGraph": {
+      "ogTitle": "Red and Blue – Desarrollo Web a Medida",
+      "ogDescription": "Innovación en desarrollo de software: rápido, escalable, seguro y con minimalismo corporativo.",
+      "ogImage": "https://redandblue.com/preview-image.png"
+    },
+    "robots": "index, follow",
+    "sitemap": true
+  },
+  "deployment": {
+    "platform": "Vercel",
+    "autoDeploy": true
+  }
+}

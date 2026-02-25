@@ -1,0 +1,11 @@
+{
+  "aiAgent": "claude",
+  "commands": {
+    "init": "initialize project",
+    "generate": "generate code from spec",
+    "optimize": "optimize SEO and performance"
+  },
+  "config": {
+    "apiKey": "YOUR_API_KEY"
+  }
+}

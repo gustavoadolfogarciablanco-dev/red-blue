@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "name": "Initialize Landing Page",
+      "command": "specify init redandblue-landing",
+      "description": "Configura el proyecto inicial con Spec Kit y prepara la estructura básica."
+    },
+    {
+      "name": "Create SEO Optimizations",
+      "command": "/speckit.specify SEO enhancements for Red and Blue landing page",
+      "description": "Aplicar configuraciones de SEO (meta tags, Open Graph, JSON-LD)."
+    },
+    {
+      "name": "Generate Code",
+      "command": "/speckit.implement",
+      "description": "Generar el código para la landing page, incluyendo HTML, CSS y JS."
+    },
+    {
+      "name": "Performance & Accessibility",
+      "command": "/speckit.checklist Performance & Accessibility",
+      "description": "Verificar que la página cumpla con los estándares de performance y accesibilidad."
+    },
+    {
+      "name": "Deploy to Vercel",
+      "command": "/speckit.deploy",
+      "description": "Automatizar el despliegue a Vercel para producción."
+    }
+  ]
+}
