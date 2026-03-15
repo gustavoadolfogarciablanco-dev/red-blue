@@ -66,7 +66,7 @@
   <link rel="stylesheet" href="css/main.css?v=20260225-5" />
 
   <!-- Favicon SVG -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🔴</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 </head>
 
 <body>
@@ -87,10 +87,9 @@
        aria-label="Navegación principal"
        data-i18n-aria="nav.aria">
     <div class="nav__inner">
-      <a href="/" class="logo"
-         aria-label="Red and Blue – Inicio"
-         data-i18n-aria="nav.logo.aria">
-        <span class="logo__red">Red</span><span class="logo__amp">&</span><span class="logo__blue">Blue</span>
+      <a href="/" class="logo" aria-label="Red and Blue – Inicio" data-i18n-aria="nav.logo.aria">
+        <img src="../images/logo.png" alt="Red and Blue logo" class="logo__img" loading="lazy" decoding="async" />
+         <span class="logo__red">RED</span><span class="logo__amp">AND</span><span class="logo__blue">BLUE</span>
       </a>
       <div class="nav__right">
         <button class="theme-btn" id="themeToggle" aria-label="Cambiar tema claro/oscuro" type="button">
