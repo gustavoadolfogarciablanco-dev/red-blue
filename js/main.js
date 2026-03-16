@@ -62,6 +62,7 @@ function applyTheme(theme) {
 
 function toggleTheme() {
   const current = getStoredTheme();
+  console.log(current)
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const isDark = current === "dark" || (!current && systemDark);
   const next = isDark ? "light" : "dark";
@@ -69,7 +70,6 @@ function toggleTheme() {
   applyTheme(next);
 }
 
-modifyIframeContent();
 applyTheme(getStoredTheme());
 document.getElementById("themeToggle")?.addEventListener("click", toggleTheme);
 
