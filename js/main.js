@@ -69,7 +69,6 @@ function toggleTheme() {
   applyTheme(next);
 }
 
-modifyIframeContent();
 applyTheme(getStoredTheme());
 document.getElementById("themeToggle")?.addEventListener("click", toggleTheme);
 
