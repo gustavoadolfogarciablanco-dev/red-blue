@@ -17,21 +17,15 @@ const DEFAULT   = 'es';
    TRANSLATION DICTIONARIES
 ───────────────────────────────────────── */
 const translations = {
-
-  /* ── ESPAÑOL ── */
   es: {
     // SEO
     'seo.title':                'Red and Blue – Desarrollo Web a Medida',
     'seo.description':          'Desarrollo web a medida, automatización de procesos e integración de IA para tu negocio. Soluciones rápidas, seguras y escalables.',
-
-    // Navigation
     'nav.aria':                 'Navegación principal',
     'nav.logo.aria':            'Red and Blue – Inicio',
     'nav.cta':                  'Iniciar proyecto',
     'nav.lang.label':           'EN',
     'nav.lang.aria':            'Switch to English',
-
-    // Hero
     'hero.aria':                'Introducción',
     'hero.tag':                 'Desarrollo · IA · Automatización',
     'hero.title':               'Desarrollo web<br /><em>a medida</em>,<br />seguro y escalable',
@@ -41,8 +35,6 @@ const translations = {
     'hero.scroll.aria':         'Desplazarse a servicios',
     'hero.badge.top':           'Proyectos activos',
     'hero.badge.bottom':        'Proyectos entregados',
-
-    // Services
     'services.tag':             'Qué hacemos',
     'services.heading':         'Estrategias digitales que<br /><em>impulsan resultados</em>',
     'services.intro':           'Cada servicio está diseñado para resolver desafíos reales de negocio con tecnología de vanguardia y las mejores prácticas de la industria.',
@@ -95,8 +87,6 @@ const translations = {
     'services.cloud.b3':        'Observabilidad, logs y alertas',
     'services.cloud.b4':        'Hardening y seguridad en cloud',
     'services.cloud.b5':        'Optimizacion de costos y rendimiento',
-
-    // Technologies
     'tech.tag':                 'Stack tecnológico',
     'tech.heading':             'Herramientas que <em>potencian resultados</em>',
     'tech.desc':                'Dominamos un ecosistema completo de tecnologías de vanguardia, desde frontend y backend hasta inteligencia artificial e infraestructura cloud.',
@@ -163,8 +153,6 @@ const translations = {
     'tech.card.gha':            'CI/CD automatizado con testing, validaciones y despliegue continuo confiable.',
     'tech.card.terraform':      'Infraestructura como codigo para provisioning repetible y control de cambios.',
     'tech.card.observability':  'Observabilidad, alertas y metricas para operaciones confiables y respuesta rapida.',
-
-    // Contact
     'contact.tag':              'Hablemos',
     'contact.heading':          'Contáctanos para<br /><em>desarrollo a medida</em>',
     'contact.desc':             'Convertimos tus ideas en soluciones digitales. Escribinos o contactanos directamente por WhatsApp.',
@@ -182,8 +170,6 @@ const translations = {
     'contact.error.name':       'Por favor ingresá tu nombre.',
     'contact.error.email':      'Ingresá un email válido.',
     'contact.error.message':    'El mensaje debe tener al menos 10 caracteres.',
-
-    // Footer
     'footer.logo.aria':         'Red and Blue – Inicio',
     'footer.nav.aria':          'Navegación de pie de página',
     'footer.nav.home':          'Inicio',
@@ -192,26 +178,17 @@ const translations = {
     'footer.nav.contact':       'Contacto',
     'footer.copy':              '© 2026 Red and Blue. Todos los derechos reservados.',
     'footer.made':              'Hecho con precisión en Uruguay.',
-
-    // Loading
     'loading.label':            'Cargando',
     'loading.aria':             'Cargando contenido',
   },
-
-  /* ── ENGLISH ── */
   en: {
-    // SEO
     'seo.title':                'Red and Blue – Custom Web Development',
     'seo.description':          'Custom web development, process automation, and AI integration for your business. Fast, secure, and scalable solutions.',
-
-    // Navigation
     'nav.aria':                 'Main navigation',
     'nav.logo.aria':            'Red and Blue – Home',
     'nav.cta':                  'Start a project',
     'nav.lang.label':           'ES',
     'nav.lang.aria':            'Cambiar a español',
-
-    // Hero
     'hero.aria':                'Introduction',
     'hero.tag':                 'Development · AI · Automation',
     'hero.title':               'Custom web<br /><em>development</em>,<br />secure and scalable',
@@ -221,8 +198,6 @@ const translations = {
     'hero.scroll.aria':         'Scroll to services',
     'hero.badge.top':           'Active projects',
     'hero.badge.bottom':        'Delivered projects',
-
-    // Services
     'services.tag':             'What we do',
     'services.heading':         'Digital strategies that<br /><em>drive results</em>',
     'services.intro':           'Each service is designed to solve real business challenges with cutting-edge technology and industry best practices.',
@@ -275,8 +250,6 @@ const translations = {
     'services.cloud.b3':        'Observability, logs, and alerts',
     'services.cloud.b4':        'Cloud security hardening',
     'services.cloud.b5':        'Cost and performance optimization',
-
-    // Technologies
     'tech.tag':                 'Tech Stack',
     'tech.heading':             'Tools that <em>drive results</em>',
     'tech.desc':                'We master a full ecosystem of cutting-edge technology, from frontend and backend to AI and cloud infrastructure.',
@@ -343,8 +316,6 @@ const translations = {
     'tech.card.gha':            'Automated CI/CD with testing, validations, and reliable continuous delivery.',
     'tech.card.terraform':      'Infrastructure as code for repeatable provisioning and change control.',
     'tech.card.observability':  'Observability, alerts, and metrics for reliable operations and fast response.',
-
-    // Contact
     'contact.tag':              "Let's talk",
     'contact.heading':          'Contact us for<br /><em>custom development</em>',
     'contact.desc':             'We turn your ideas into digital solutions. Write to us or reach us directly via WhatsApp.',
@@ -362,8 +333,6 @@ const translations = {
     'contact.error.name':       'Please enter your name.',
     'contact.error.email':      'Please enter a valid email address.',
     'contact.error.message':    'Message must be at least 10 characters.',
-
-    // Footer
     'footer.logo.aria':         'Red and Blue – Home',
     'footer.nav.aria':          'Footer navigation',
     'footer.nav.home':          'Home',
@@ -372,8 +341,6 @@ const translations = {
     'footer.nav.contact':       'Contact',
     'footer.copy':              '© 2026 Red and Blue. All rights reserved.',
     'footer.made':              'Made with precision in Uruguay.',
-
-    // Loading
     'loading.label':            'Loading',
     'loading.aria':             'Loading content',
   },
@@ -413,49 +380,40 @@ export function applyLanguage(langCode) {
   if (!SUPPORTED.includes(langCode)) return;
   currentLang = langCode;
 
-  // Persist
   localStorage.setItem(LANG_KEY, langCode);
 
-  // Declared page language (accessibility + SEO)
   document.documentElement.setAttribute('lang', langCode);
 
-  // SEO metadata
   document.title = t('seo.title');
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.setAttribute('content', t('seo.description'));
 
-  // Text content (simple strings)
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const value = t(el.dataset.i18n);
     if (value !== el.dataset.i18n) el.textContent = value;
   });
 
-  // HTML content (strings containing <br>, <em>, etc.)
   document.querySelectorAll('[data-i18n-html]').forEach((el) => {
     const value = t(el.dataset.i18nHtml);
     if (value !== el.dataset.i18nHtml) el.innerHTML = value;
   });
 
-  // Placeholder attributes
   document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
     const value = t(el.dataset.i18nPlaceholder);
     if (value !== el.dataset.i18nPlaceholder) el.placeholder = value;
   });
 
-  // aria-label attributes
   document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
     const value = t(el.dataset.i18nAria);
     if (value !== el.dataset.i18nAria) el.setAttribute('aria-label', value);
   });
 
-  // Update lang toggle button label (shows OTHER language)
   const langBtn = document.getElementById('langToggle');
   if (langBtn) {
     langBtn.textContent = t('nav.lang.label');
     langBtn.setAttribute('aria-label', t('nav.lang.aria'));
   }
 
-  // Screen reader announcement
   const announcer = document.getElementById('lang-announcer');
   if (announcer) {
     announcer.textContent = langCode === 'en' ? 'Language: English' : 'Idioma: Español';
