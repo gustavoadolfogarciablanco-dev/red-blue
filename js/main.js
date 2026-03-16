@@ -70,7 +70,6 @@ function toggleTheme() {
   applyTheme(next);
 }
 
-// Init theme on load
 applyTheme(getStoredTheme());
 document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
 
@@ -96,12 +95,10 @@ updateNavScroll(); // apply correct state on load
 function initAnimations() {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-  // Enable CSS opacity:0 initial states now that GSAP is confirmed
   document.documentElement.classList.add('gsap-ready');
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // ── Hero staggered reveal ──
   const heroReveals = gsap.utils.toArray('.hero .js-reveal');
   if (heroReveals.length) {
     gsap.fromTo(
@@ -127,7 +124,6 @@ function initAnimations() {
     );
   }
 
-  // ── Generic section reveals ──
   gsap.utils.toArray('.js-reveal:not(.hero .js-reveal)').forEach((el) => {
     gsap.fromTo(
       el,
@@ -146,7 +142,6 @@ function initAnimations() {
     );
   });
 
-  // ── Right reveals ──
   gsap.utils.toArray('.js-reveal-right:not(.hero .js-reveal-right)').forEach((el) => {
     gsap.fromTo(
       el,
@@ -165,7 +160,6 @@ function initAnimations() {
     );
   });
 
-  // ── Stagger groups ──
   const staggerGroups = {};
 
   gsap.utils.toArray('.js-stagger').forEach((el) => {
@@ -195,11 +189,9 @@ function initAnimations() {
   });
 }
 
-// Wait for GSAP to be available
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initAnimations);
 } else {
-  // GSAP scripts are synchronous, slight delay for safety
   setTimeout(initAnimations, 50);
 }
 
@@ -365,7 +357,6 @@ function validateAll() {
     .every(Boolean);
 }
 
-// Live validation on blur
 Object.keys(VALIDATORS).forEach((name) => {
   getField(name)?.addEventListener('blur', () => validateField(name));
   getField(name)?.addEventListener('input', () => {
@@ -373,7 +364,6 @@ Object.keys(VALIDATORS).forEach((name) => {
   });
 });
 
-// Submit
 form?.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!validateAll()) return;

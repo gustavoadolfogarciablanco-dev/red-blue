@@ -48,21 +48,14 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 </head>
-
 <body>
-
-  <!-- Screen reader language announcer (accessibility T021) -->
   <span id="lang-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></span>
-
-  <!-- Page loader overlay -->
   <div class="page-loader" role="status" aria-live="polite" aria-label="Cargando" data-i18n-aria="loading.aria">
     <div class="page-loader__inner">
       <span class="page-loader__ring" aria-hidden="true"></span>
       <span class="page-loader__text" data-i18n="loading.label">Cargando</span>
     </div>
   </div>
-
-  <!-- Navigation -->
   <nav class="nav" role="navigation"
        aria-label="Navegación principal"
        data-i18n-aria="nav.aria">
@@ -80,24 +73,19 @@
             <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
           </svg>
         </button>
-        <!-- Language toggle button (T008) -->
         <button class="lang-btn" id="langToggle" type="button" aria-label="Switch to English">EN</button>
         <a href="#contacto" class="btn btn--sm" data-i18n="nav.cta">Iniciar proyecto</a>
       </div>
     </div>
   </nav>
-
-  <!-- ===================== HERO ===================== -->
   <section class="hero" id="inicio"
            aria-label="Introducción"
            data-i18n-aria="hero.aria">
-    <!-- Gradient mesh background -->
     <div class="hero__mesh" aria-hidden="true">
       <div class="mesh mesh--1"></div>
       <div class="mesh mesh--2"></div>
       <div class="mesh mesh--3"></div>
     </div>
-
     <div class="hero__inner">
       <div class="hero__content">
         <p class="hero__tag js-reveal" data-i18n="hero.tag">Desarrollo · IA · Automatización</p>
@@ -116,7 +104,6 @@
           <a href="#servicios" class="btn btn--ghost btn--lg" data-i18n="hero.cta.secondary">Ver servicios</a>
         </div>
       </div>
-
       <div class="hero__visual js-reveal-right" aria-hidden="true">
         <div class="hero__blob hero__blob--1"></div>
         <div class="hero__blob hero__blob--2"></div>
@@ -130,15 +117,12 @@
         </div>
       </div>
     </div>
-
     <a href="#servicios" class="hero__scroll"
        aria-label="Desplazarse a servicios"
        data-i18n-aria="hero.scroll.aria">
       <span class="scroll__line"></span>
     </a>
   </section>
-
-  <!-- ===================== SERVICIOS ===================== -->
   <section class="services" id="servicios" aria-labelledby="services-heading">
     <div class="section__inner">
       <header class="section__head">
@@ -151,7 +135,6 @@
           Cada servicio está diseñado para resolver desafíos reales de negocio con tecnología de vanguardia y las mejores prácticas de la industria.
         </p>
       </header>
-
       <div class="services__grid">
         <article class="svc-card js-stagger" role="article">
           <p class="svc-card__kicker" data-i18n="services.web.kicker">Plataformas robustas para empresas en crecimiento</p>
@@ -168,7 +151,6 @@
           </ul>
           <a class="btn btn--sm svc-card__cta" href="#contacto" data-i18n="services.cta">Solicitar información</a>
         </article>
-
         <article class="svc-card svc-card--alt js-stagger" role="article">
           <p class="svc-card__kicker" data-i18n="services.cloud.kicker">Infraestructura confiable para escalar sin friccion</p>
           <h3 class="svc-card__title" data-i18n="services.cloud.title">Cloud y DevOps</h3>
@@ -184,7 +166,6 @@
           </ul>
           <a class="btn btn--sm svc-card__cta" href="#contacto" data-i18n="services.cta">Solicitar información</a>
         </article>
-
         <article class="svc-card js-stagger" role="article">
           <p class="svc-card__kicker" data-i18n="services.ux.kicker">Experiencias digitales centradas en el usuario</p>
           <h3 class="svc-card__title" data-i18n="services.ux.title">Experiencia Digital y UX</h3>
@@ -200,7 +181,6 @@
           </ul>
           <a class="btn btn--sm svc-card__cta" href="#contacto" data-i18n="services.cta">Solicitar información</a>
         </article>
-
         <article class="svc-card svc-card--alt js-stagger" role="article">
           <p class="svc-card__kicker" data-i18n="services.data.kicker">Decisiones basadas en datos confiables</p>
           <h3 class="svc-card__title" data-i18n="services.data.title">Analítica y Data Intelligence</h3>
@@ -216,7 +196,6 @@
           </ul>
           <a class="btn btn--sm svc-card__cta" href="#contacto" data-i18n="services.cta">Solicitar información</a>
         </article>
-
         <article class="svc-card js-stagger" role="article">
           <p class="svc-card__kicker" data-i18n="services.ai.kicker">Inteligencia artificial aplicada a tu operación</p>
           <h3 class="svc-card__title" data-i18n="services.ai.title">Integración de IA</h3>
@@ -232,7 +211,6 @@
           </ul>
           <a class="btn btn--sm svc-card__cta" href="#contacto" data-i18n="services.cta">Solicitar información</a>
         </article>
-
         <article class="svc-card svc-card--alt js-stagger" role="article">
           <p class="svc-card__kicker" data-i18n="services.auto.kicker">Eficiencia operativa sin tareas repetitivas</p>
           <h3 class="svc-card__title" data-i18n="services.auto.title">Automatización de Procesos</h3>
@@ -251,8 +229,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ===================== TECNOLOGÍAS ===================== -->
   <section class="technologies" id="tecnologias" aria-labelledby="tech-heading">
     <div class="section__inner">
       <header class="section__head">
@@ -283,7 +259,6 @@
           <span class="tech-count__suffix" data-i18n="tech.count.suffix">tecnologias</span>
         </div>
       </div>
-
       <div class="tech-grid" role="list">
         <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
           <div class="tech-card__inner">
@@ -298,7 +273,6 @@
             </div>
           </div>
         </article>
-
         <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
           <div class="tech-card__inner">
             <div class="tech-card__face tech-card__face--front">
@@ -326,7 +300,6 @@
             </div>
           </div>
         </article>
-
         <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
           <div class="tech-card__inner">
             <div class="tech-card__face tech-card__face--front">
@@ -340,7 +313,6 @@
             </div>
           </div>
         </article>
-
         <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
           <div class="tech-card__inner">
             <div class="tech-card__face tech-card__face--front">
@@ -354,7 +326,6 @@
             </div>
           </div>
         </article>
-
         <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
           <div class="tech-card__inner">
             <div class="tech-card__face tech-card__face--front">
@@ -368,7 +339,6 @@
             </div>
           </div>
         </article>
-
         <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
           <div class="tech-card__inner">
             <div class="tech-card__face tech-card__face--front">
@@ -382,7 +352,6 @@
             </div>
           </div>
         </article>
-
         <article class="tech-card js-stagger" role="listitem" data-tech-category="frontend">
           <div class="tech-card__inner">
             <div class="tech-card__face tech-card__face--front">
@@ -945,8 +914,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ===================== CONTACTO ===================== -->
   <section class="contact" id="contacto" aria-labelledby="contact-heading">
     <div class="section__inner">
       <div class="contact__layout">
@@ -1031,8 +998,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ===================== FOOTER ===================== -->
   <footer class="footer" role="contentinfo">
     <div class="footer__inner">
       <div class="footer__top">
@@ -1056,7 +1021,6 @@
       </div>
     </div>
   </footer>
-
   <script src="js/main.js?v=20260225-6" type="module"></script>
 </body>
 </html>
