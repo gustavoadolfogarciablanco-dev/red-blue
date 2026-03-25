@@ -206,13 +206,12 @@
       </div>
     </section>
     <section class="technologies" id="tecnologias" aria-labelledby="tech-heading">
-      <div class="section__inner">
+      <div class="section__inner limit-height">
         <header class="section__head">
           <p class="section__tag js-reveal" data-i18n="tech.tag">Stack tecnologico</p>
           <h2 class="section__title js-reveal" id="tech-heading" data-i18n-html="tech.heading">Herramientas que <em>potencian resultados</em></h2>
           <p class="section__desc js-reveal" data-i18n="tech.desc">Dominamos un ecosistema completo de tecnologias de vanguardia, desde frontend y backend hasta inteligencia artificial e infraestructura cloud.</p>
         </header>
-
         <div class="tech-toolbar js-reveal">
           <div class="tech-filters" role="tablist" aria-label="Filtros de tecnologia" data-i18n-aria="tech.filters.aria">
             <button class="tech-filter is-active" type="button" data-filter="all" aria-pressed="true" data-i18n="tech.filter.all">Todos</button>
@@ -883,6 +882,13 @@
             </div>
           </article>
         </div>
+        <div class="scroll-container">
+          <button class="expand-button">
+            <svg class="flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F5F5FA" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
     <section class="contact" id="contacto" aria-labelledby="contact-heading">
@@ -951,7 +957,10 @@
     <footer class="footer" role="contentinfo">
       <div class="footer__inner">
         <div class="footer__top">
-          <a href="/" class="logo" aria-label="Red and Blue – Inicio" data-i18n-aria="footer.logo.aria"> <span class="logo__red">Red</span><span class="logo__amp">&</span><span class="logo__blue">Blue</span> </a>
+          <a href="/" class="logo" aria-label="Red and Blue – Inicio" data-i18n-aria="nav.logo.aria">
+            <img src="../images/logo.png" alt="Red and Blue logo" class="logo__img" loading="lazy" decoding="async" />
+            <span class="logo__red">RED</span><span class="logo__amp">AND</span><span class="logo__blue">BLUE</span>
+          </a>
           <nav class="footer__nav" aria-label="Navegación de pie de página" data-i18n-aria="footer.nav.aria">
             <a href="#inicio" data-i18n="footer.nav.home">Inicio</a>
             <a href="#servicios" data-i18n="footer.nav.services">Servicios</a>
