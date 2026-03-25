@@ -188,6 +188,10 @@ if (document.readyState === "loading") {
   setTimeout(initAnimations, 50);
 }
 
+const technologiesSectionInner = document.getElementById("tecnologias").childNodes[1];
+const scrollContainer = document.querySelector(".scroll-container");
+const expandBtn = document.querySelector(".expand-button");
+
 /* ─────────────────────────────────────────
    TECH STACK FILTERS
 ───────────────────────────────────────── */
@@ -217,6 +221,17 @@ function initTechFilters() {
 
     if (countValue) countValue.textContent = String(visibleCount);
   }
+
+  const techGrid = document.querySelector(".tech-grid");
+
+  const resizeObserver = new ResizeObserver(() => {
+    const isExpanded = technologiesSectionInner.classList.contains("expanded");
+    const hasOverflow = technologiesSectionInner.scrollHeight > technologiesSectionInner.clientHeight;
+
+    scrollContainer.style.display = hasOverflow && !isExpanded ? "flex" : "none";
+  });
+
+  resizeObserver.observe(techGrid);
 
   filterButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -312,6 +327,15 @@ initTechCards();
 const form = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");
 const success = document.getElementById("formSuccess");
+
+expandBtn.addEventListener("click", () => {
+  technologiesSectionInner.classList.toggle("expanded");
+  scrollContainer.style.display = "none";
+
+  if (!technologiesSectionInner.classList.contains("expanded")) {
+    technologiesSectionInner.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+});
 
 const VALIDATORS = {
   name: (v) => (v.trim().length >= 2 ? "" : t("contact.error.name")),
