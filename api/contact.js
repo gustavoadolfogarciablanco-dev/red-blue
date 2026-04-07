@@ -9,61 +9,67 @@
  *   4. Replace TO_EMAIL with your receiving address
  */
 
-const FROM_EMAIL = 'contact@redandblue.dev';
-const TO_EMAIL   = 'contact@redandblue.dev';
+const FROM_EMAIL = "contact@redandblue.dev";
+const TO_EMAIL = "contact@redandblue.dev";
 
 module.exports = async function handler(req, res) {
-  // CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST')   return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method === "OPTIONS") return res.status(200).end();
+  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
-  const { name, email, message } = req.body ?? {};
+  const { name, subject, company, phone, email, message } = req.body ?? {};
 
-  // Basic validation
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
-    return res.status(400).json({ error: 'Todos los campos son requeridos.' });
+    return res.status(400).json({ error: "Todos los campos son requeridos." });
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email.trim())) {
-    return res.status(400).json({ error: 'Email inválido.' });
+    return res.status(400).json({ error: "Email inválido." });
   }
 
-  // Sanitize inputs
-  const safeName    = name.trim().slice(0, 100).replace(/[<>]/g, '');
-  const safeEmail   = email.trim().slice(0, 200);
-  const safeMessage = message.trim().slice(0, 2000).replace(/[<>]/g, '');
+  const escapeHTML = (str = "") => str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+
+  const safeName = escapeHTML(name?.trim().slice(0, 100).replace(/[<>]/g, "") || "");
+  const safeEmail = escapeHTML(email?.trim().slice(0, 200) || "");
+  const safeCompany = escapeHTML(company?.trim().slice(0, 200).replace(/[<>]/g, "") || "");
+  const safePhone = escapeHTML(phone?.trim().slice(0, 100).replace(/[<>]/g, "") || "");
+  const safeSubject = escapeHTML(subject?.trim().slice(0, 200).replace(/[<>]/g, "") || "");
+  const safeMessage = escapeHTML(message?.trim().slice(0, 2000).replace(/[<>]/g, "") || "");
 
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
   if (!RESEND_API_KEY) {
-    console.error('RESEND_API_KEY not configured');
-    return res.status(500).json({ error: 'Servicio de email no configurado.' });
+    console.error("RESEND_API_KEY not configured");
+    return res.status(500).json({ error: "Servicio de email no configurado." });
   }
 
   try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         from: FROM_EMAIL,
-        to:   [TO_EMAIL],
+        to: [TO_EMAIL],
         reply_to: safeEmail,
-        subject: `Nueva consulta de ${safeName} – Red and Blue`,
+        subject: `[${safeSubject}] ${safeCompany} – Red&Blue Technologies`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px;">
             <h2 style="color: #1A3FAA; margin-bottom: 24px;">Nueva consulta desde redandblue.dev</h2>
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 10px 0; color: #666; font-size: 14px; width: 100px;">Nombre</td>
-                <td style="padding: 10px 0; font-weight: 500;">${safeName}</td>
+                <td style="padding: 10px 0; font-weight: 500;">${safeName}${safeCompany ? ` de ${safeCompany}` : ""}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; color: #666; font-size: 14px;">Teléfono</td>
+                <td style="padding: 10px 0; font-weight: 500;">${safePhone}</td>
               </tr>
               <tr>
                 <td style="padding: 10px 0; color: #666; font-size: 14px;">Email</td>
@@ -82,14 +88,13 @@ module.exports = async function handler(req, res) {
 
     if (!response.ok) {
       const err = await response.json().catch(() => ({}));
-      console.error('Resend error:', err);
-      return res.status(500).json({ error: 'Error al enviar el mensaje. Intentá de nuevo.' });
+      console.error("Resend error:", err);
+      return res.status(500).json({ error: "Error al enviar el mensaje. Intentá de nuevo." });
     }
 
     return res.status(200).json({ ok: true });
-
   } catch (err) {
-    console.error('Contact handler error:', err);
-    return res.status(500).json({ error: 'Error interno. Intentá de nuevo.' });
+    console.error("Contact handler error:", err);
+    return res.status(500).json({ error: "Error interno. Intentá de nuevo." });
   }
-}
+};

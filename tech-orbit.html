@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Orbit</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        overflow: hidden;
+      }
+
+      .orbit-scene {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .orbit-scene.paused * {
+        animation-play-state: paused !important;
+      }
+
+      .orbit-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px dashed rgba(99, 179, 237, 0.18);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      .orbit-center {
+        position: relative;
+        z-index: 10;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1a2a4a 0%, #0d1b35 100%);
+        border: 2px solid rgba(56, 139, 253, 0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        box-shadow:
+          0 0 0 6px rgba(56, 139, 253, 0.07),
+          0 0 40px rgba(56, 139, 253, 0.22),
+          0 0 80px rgba(56, 139, 253, 0.08);
+        animation: pulse-center 3s ease-in-out infinite;
+      }
+
+      @keyframes pulse-center {
+        0%,
+        100% {
+          box-shadow:
+            0 0 0 6px rgba(56, 139, 253, 0.07),
+            0 0 40px rgba(56, 139, 253, 0.22),
+            0 0 80px rgba(56, 139, 253, 0.08);
+        }
+        50% {
+          box-shadow:
+            0 0 0 10px rgba(56, 139, 253, 0.1),
+            0 0 55px rgba(56, 139, 253, 0.3),
+            0 0 100px rgba(56, 139, 253, 0.13);
+        }
+      }
+
+      .orbit-center__logo {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: #e2eaf8;
+        line-height: 1;
+      }
+
+      .orbit-center__img {
+        height: 45px;
+        width: 45px;
+      }
+
+      .orbit-center__logo span {
+        color: #3b82f6;
+      }
+
+      .orbit-center__sub {
+        font-size: 9px;
+        color: rgba(148, 163, 184, 0.7);
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .orbit-track {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .orbit-icon {
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(99, 179, 237, 0.22);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          border-color 0.25s ease;
+      }
+
+      .orbit-icon img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 4px rgba(56, 139, 253, 0.3));
+        pointer-events: none;
+      }
+
+      .orbit-icon::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: calc(100% + 7px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(10, 18, 36, 0.95);
+        color: #cbd5e1;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        padding: 3px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(99, 179, 237, 0.25);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.18s ease;
+      }
+
+      @keyframes orbit-cw {
+        from {
+          transform: rotate(0deg) translateX(var(--r)) rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg) translateX(var(--r)) rotate(-360deg);
+        }
+      }
+
+      @keyframes orbit-ccw {
+        from {
+          transform: rotate(0deg) translateX(var(--r)) rotate(0deg);
+        }
+        to {
+          transform: rotate(-360deg) translateX(var(--r)) rotate(360deg);
+        }
+      }
+
+      .particles {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(99, 179, 237, 0.45);
+        animation: float-particle linear infinite;
+      }
+
+      @keyframes float-particle {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-100vh) scale(0.4);
+          opacity: 0;
+        }
+      }
+
+      .orbit-scene {
+        animation: scene-entry 0.9s cubic-bezier(0.22, 0.68, 0, 1.2) both;
+      }
+
+      @keyframes scene-entry {
+        from {
+          opacity: 0;
+          transform: scale(0.4);
+        }
+        to {
+          opacity: 1;
+          transform: scale(0.7);
+        }
+      }
+
+      .hint {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 11px;
+        color: rgba(148, 163, 184, 0.45);
+        letter-spacing: 0.06em;
+        pointer-events: none;
+        z-index: 20;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="particles" id="particles"></div>
+    <div class="orbit-scene" id="orbitScene">
+      <div class="orbit-center" id="orbitCenter">
+        <img src="../images/logo.png" alt="Red and Blue logo" class="orbit-center__img" loading="lazy" decoding="async" />
+        <span class="orbit-center__sub">dev stack</span>
+      </div>
+    </div>
+    <script>
+      const RADIUS = 110;
+      const RADIAL_INCREASE = 80;
+      const CONFIG = {
+        orbits: [
+          {
+            radius: RADIUS,
+            speed: 18,
+            direction: "cw",
+            icons: [
+              { label: "HTML5", src: "https://cdn.simpleicons.org/html5/E34F26" },
+              { label: "CSS3", src: "https://cdn.simpleicons.org/css/1572B6" },
+              { label: "JavaScript", src: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+              { label: "TypeScript", src: "https://cdn.simpleicons.org/typescript/3178C6" },
+            ],
+          },
+          {
+            radius: RADIUS + RADIAL_INCREASE,
+            speed: 30,
+            direction: "ccw",
+            icons: [
+              { label: "React", src: "https://cdn.simpleicons.org/react/61DAFB" },
+              { label: "Node.js", src: "https://cdn.simpleicons.org/nodedotjs/339933" },
+              { label: "Next.js", src: "https://cdn.simpleicons.org/nextdotjs/ffffff" },
+              { label: "Vue", src: "https://cdn.simpleicons.org/vuedotjs/4FC08D" },
+              { label: "Tailwind", src: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+            ],
+          },
+          {
+            radius: RADIUS + RADIAL_INCREASE * 2,
+            speed: 45,
+            direction: "cw",
+            icons: [
+              { label: "Git", src: "https://cdn.simpleicons.org/git/F05032" },
+              { label: "Docker", src: "https://cdn.simpleicons.org/docker/2496ED" },
+              { label: "PostgreSQL", src: "https://cdn.simpleicons.org/postgresql/4169E1" },
+              { label: "MongoDB", src: "https://cdn.simpleicons.org/mongodb/47A248" },
+              { label: "Redis", src: "https://cdn.simpleicons.org/redis/FF4438" },
+              { label: "Vercel", src: "https://cdn.simpleicons.org/vercel/ffffff" },
+            ],
+          },
+        ],
+      };
+
+      const scene = document.getElementById("orbitScene");
+      const maxRadius = Math.max(...CONFIG.orbits.map((o) => o.radius));
+      const sceneSize = (maxRadius + 60) * 2;
+
+      scene.style.width = sceneSize + "px";
+      scene.style.height = sceneSize + "px";
+
+      CONFIG.orbits.forEach((orbit) => {
+        const ring = document.createElement("div");
+        ring.className = "orbit-ring";
+        ring.style.width = orbit.radius * 2 + "px";
+        ring.style.height = orbit.radius * 2 + "px";
+        scene.appendChild(ring);
+
+        const count = orbit.icons.length;
+        orbit.icons.forEach((tech, i) => {
+          const angle = (360 / count) * i;
+
+          const icon = document.createElement("div");
+          icon.className = "orbit-icon";
+          icon.dataset.label = tech.label;
+
+          const kf = orbit.direction === "cw" ? "orbit-cw" : "orbit-ccw";
+          const delay = -(orbit.speed / count) * i;
+
+          icon.style.cssText = `
+               --r: ${orbit.radius}px;
+               width: 44px;
+               height: 44px;
+               top: calc(50% - 22px);
+               left: calc(50% - 22px);
+               animation: ${kf} ${orbit.speed}s linear ${delay}s infinite;
+          `;
+
+          const img = document.createElement("img");
+          img.src = tech.src;
+          img.alt = tech.label;
+          img.loading = "lazy";
+
+          icon.appendChild(img);
+          scene.appendChild(icon);
+        });
+      });
+
+      const particleContainer = document.getElementById("particles");
+      for (let i = 0; i < 28; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        const size = Math.random() * 2.5 + 1;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 20;
+        const dur = Math.random() * 15 + 10;
+        p.style.cssText = `
+            width: ${size}px; height: ${size}px;
+            left: ${left}%;
+            bottom: -${size}px;
+            animation-duration: ${dur}s;
+            animation-delay: ${delay}s;
+        `;
+        particleContainer.appendChild(p);
+      }
+
+      window.addEventListener("message", (e) => {
+        if (e.data.width) {
+          const scale = e.data.width / sceneSize;
+          scene.style.setProperty("transform", `scale(${scale})`, "important");
+        }
+      });
+    </script>
+  </body>
+</html>
