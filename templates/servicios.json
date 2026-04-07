@@ -78,7 +78,7 @@
       {
         "title": "Cloud y DevOps",
         "subtitle": "Infraestructura confiable para escalar sin friccion",
-        "description": "Disenamos, automatizamos y optimizamos entornos cloud para acelerar despliegues, mejorar la estabilidad y reducir costos operativos.",
+        "description": "Diseñamos, automatizamos y optimizamos entornos cloud para acelerar despliegues, mejorar la estabilidad y reducir costos operativos.",
         "bullets": [
           "Infraestructura como codigo (IaC)",
           "CI/CD y despliegues automatizados",

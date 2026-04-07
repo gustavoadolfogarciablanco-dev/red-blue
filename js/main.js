@@ -2,7 +2,7 @@
  * Red and Blue – Main JavaScript
  * Handles: theme toggle, GSAP animations, scroll reveal, form validation & submission
  */
-import { initI18n, t } from "./i18n.js?v=20260225-6";
+import { initI18n, t } from "./i18n.js?v=20260407-1";
 
 /* ─────────────────────────────────────────
    i18n – MUST RUN FIRST
@@ -69,7 +69,7 @@ function toggleTheme() {
   applyTheme(next);
 }
 
-applyTheme(getStoredTheme());
+applyTheme("light");
 document.getElementById("themeToggle")?.addEventListener("click", toggleTheme);
 
 /* ─────────────────────────────────────────
@@ -190,7 +190,6 @@ if (document.readyState === "loading") {
 
 const technologiesSectionInner = document.getElementById("tecnologias").childNodes[1];
 const scrollContainer = document.querySelector(".scroll-container");
-const expandBtn = document.querySelector(".expand-button");
 
 /* ─────────────────────────────────────────
    TECH STACK FILTERS
@@ -321,97 +320,29 @@ function initTechCards() {
 
 initTechCards();
 
-/* ─────────────────────────────────────────
-   CONTACT FORM
-───────────────────────────────────────── */
-const form = document.getElementById("contactForm");
-const submitBtn = document.getElementById("submitBtn");
-const success = document.getElementById("formSuccess");
+function handleAccordionAction() {
+  const items = document.querySelectorAll(".faq-item");
 
-expandBtn.addEventListener("click", () => {
-  technologiesSectionInner.classList.toggle("expanded");
-  scrollContainer.style.display = "none";
+  items.forEach((item) => {
+    const trigger = item.querySelector(".faq-item__trigger");
 
-  if (!technologiesSectionInner.classList.contains("expanded")) {
-    technologiesSectionInner.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-});
+    trigger.addEventListener("click", () => {
+      const isOpen = item.classList.contains("faq-item--open");
 
-const VALIDATORS = {
-  name: (v) => (v.trim().length >= 2 ? "" : t("contact.error.name")),
-  email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? "" : t("contact.error.email")),
-  message: (v) => (v.trim().length >= 10 ? "" : t("contact.error.message")),
-};
+      items.forEach((i) => {
+        i.classList.remove("faq-item--open");
+        i.querySelector(".faq-item__trigger").setAttribute("aria-expanded", "false");
+      });
 
-function getField(name) {
-  return form?.querySelector(`[name="${name}"]`);
-}
-function getError(name) {
-  return form?.querySelector(`[name="${name}"]`)?.parentElement?.querySelector(".field__error");
-}
-
-function validateField(name) {
-  const input = getField(name);
-  const error = getError(name);
-  if (!input || !error) return true;
-
-  const msg = VALIDATORS[name]?.(input.value) ?? "";
-  error.textContent = msg;
-  input.classList.toggle("is-error", !!msg);
-  return !msg;
-}
-
-function validateAll() {
-  return Object.keys(VALIDATORS)
-    .map((name) => validateField(name))
-    .every(Boolean);
-}
-
-Object.keys(VALIDATORS).forEach((name) => {
-  getField(name)?.addEventListener("blur", () => validateField(name));
-  getField(name)?.addEventListener("input", () => {
-    if (getField(name)?.classList.contains("is-error")) validateField(name);
-  });
-});
-
-form?.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  if (!validateAll()) return;
-
-  submitBtn?.classList.add("btn--loading");
-  submitBtn.disabled = true;
-
-  const payload = {
-    name: getField("name")?.value.trim(),
-    email: getField("email")?.value.trim(),
-    message: getField("message")?.value.trim(),
-  };
-
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      if (!isOpen) {
+        item.classList.add("faq-item--open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
     });
+  });
+}
 
-    if (!res.ok) throw new Error("Server error");
-
-    // Show success
-    form.reset();
-    if (success) {
-      success.hidden = false;
-      success.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
-  } catch {
-    // Fallback: open mailto
-    const subject = encodeURIComponent("Consulta desde redandblue.dev");
-    const body = encodeURIComponent(`Nombre: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`);
-    window.location.href = `mailto:contact@redandblue.dev?subject=${subject}&body=${body}`;
-  } finally {
-    submitBtn?.classList.remove("btn--loading");
-    submitBtn.disabled = false;
-  }
-});
+handleAccordionAction();
 
 /* ─────────────────────────────────────────
    SMOOTH ANCHOR SCROLL (offset for nav)
@@ -428,3 +359,137 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     window.scrollTo({ top, behavior: "smooth" });
   });
 });
+
+window.addEventListener("load", () => {
+  const iframe = document.querySelector("iframe");
+
+  function sendSize() {
+    iframe.contentWindow.postMessage({ width: iframe.offsetWidth }, "*");
+  }
+
+  sendSize();
+
+  window.addEventListener("resize", () => {
+    sendSize();
+  });
+});
+
+(function () {
+  const form = document.getElementById("contactCardForm");
+  const submitBtn = document.getElementById("cfSubmitBtn");
+  const success = document.getElementById("cfSuccess");
+
+  if (!form) return;
+
+  function getField(name) {
+    return form?.querySelector(`[name="${name}"]`);
+  }
+
+  function validateField(input) {
+    const field = input.closest(".cfield");
+    if (!field) return true;
+
+    const error = field.querySelector(".cfield__error");
+    let valid = true;
+
+    if (input.required && !input.value.trim()) {
+      valid = false;
+    } else if (input.type === "email" && input.value) {
+      valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+    }
+
+    input.classList.toggle("cfield__input--error", !valid);
+    if (error) error.classList.toggle("cfield__error--visible", !valid);
+
+    return valid;
+  }
+
+  form.querySelectorAll(".cfield__input, .cfield__textarea").forEach((input) => {
+    input.addEventListener("blur", () => validateField(input));
+    input.addEventListener("input", () => {
+      if (input.classList.contains("cfield__input--error")) validateField(input);
+    });
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const fields = [...form.querySelectorAll("[required]")];
+    const allValid = fields.map((f) => validateField(f)).every(Boolean);
+    if (!allValid) return;
+
+    const privacy = document.getElementById("cf-privacy");
+    if (!privacy.checked) {
+      return showToast("toast.error.privacy", "error");
+    }
+
+    submitBtn?.classList.add("btn--loading");
+    submitBtn.disabled = true;
+
+    const payload = {
+      name: getField("name")?.value.trim(),
+      subject: getField("subject")?.value.trim(),
+      company: getField("company")?.value.trim(),
+      phone: getField("phone")?.value.trim(),
+      email: getField("email")?.value.trim(),
+      message: getField("message")?.value.trim(),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Server error");
+
+      form.reset();
+      if (success) {
+        success.hidden = false;
+        success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    } catch {
+      const subject = encodeURIComponent("Consulta desde redandblue.dev");
+      const body = encodeURIComponent(`Nombre: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`);
+      window.location.href = `mailto:contact@redandblue.dev?subject=${subject}&body=${body}`;
+
+      showToast("toast.error.contact", "error");
+    } finally {
+      submitBtn?.classList.remove("btn--loading");
+      submitBtn.disabled = false;
+
+      showToast("toast.success.contact", "success");
+    }
+  });
+})();
+
+function limitToasts(max = 2) {
+  const toasts = document.querySelectorAll(".toastify");
+  if (toasts.length >= max) {
+    toasts[0].remove();
+  }
+}
+
+function showToast(key, status = "info") {
+  limitToasts(1);
+
+  const styles = {
+    success: "linear-gradient(135deg, #22c55e, #16a34a)",
+    error: "linear-gradient(135deg, #ef4444, #dc2626)",
+    warning: "linear-gradient(135deg, #f59e0b, #d97706)",
+    info: "linear-gradient(135deg, #3b82f6, #2563eb)",
+  };
+
+  Toastify({
+    text: t(key),
+    duration: 4000,
+    gravity: "bottom",
+    position: "right",
+    style: {
+      background: styles[status] || styles.info,
+      borderRadius: "16px",
+      border: "1px solid rgba(255,255,255,0.2)",
+    },
+  }).showToast();
+}
