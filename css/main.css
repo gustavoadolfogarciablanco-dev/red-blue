@@ -776,6 +776,7 @@ ol {
   list-style: none;
 }
 em {
+  display: inline-block;
   font-style: italic;
 }
 
